@@ -11,7 +11,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
+<body class="bg-[#B7C0C6] text-slate-800 font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
 
     <nav class="w-full py-8 absolute top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 flex justify-center items-center w-full">
