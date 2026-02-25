@@ -6,7 +6,7 @@
     <title>Services | VarsaWeb</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="min-h-screen bg-linear-to-b from-slate-100 via-slate-50 to-slate-100 text-slate-800 font-sans antialiased">
     <header class="sticky top-0 z-50 w-full pt-4">
         <div class="max-w-6xl mx-auto px-6">
             <div class="rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 px-5 md:px-6 py-3 flex items-center justify-between gap-4 shadow-sm">
@@ -26,31 +26,31 @@
     </header>
 
     <main class="max-w-6xl mx-auto px-6 py-16">
-        <section class="rounded-3xl border border-slate-200 bg-white p-6 md:p-10">
+        <section class="rounded-3xl border border-white/50 bg-white/35 backdrop-blur-xl p-6 md:p-10 shadow-xl shadow-slate-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
                 <div>
-                    <span class="inline-flex items-center rounded-full bg-brand-50 text-brand-600 px-3 py-1 text-xs font-medium">Digital Service Studio</span>
+                    <span class="inline-flex items-center rounded-full border border-white/60 bg-white/40 backdrop-blur-md text-brand-600 px-3 py-1 text-xs font-medium">Digital Service Studio</span>
                     <h1 class="mt-4 font-display text-4xl md:text-5xl font-bold text-slate-900">Our Services</h1>
                     <p class="mt-5 text-lg text-slate-600 leading-relaxed max-w-xl">
                         Kami merancang website yang tidak hanya indah, tetapi juga terukur hasilnya. Dari strategi hingga implementasi, semua layanan kami dibangun untuk mendorong pertumbuhan bisnis Anda.
                     </p>
                     <div class="mt-6 flex flex-wrap items-center gap-3">
-                        <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-4 py-2 text-sm">Fast Delivery</span>
-                        <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-4 py-2 text-sm">Scalable System</span>
-                        <span class="inline-flex items-center rounded-full bg-slate-100 text-slate-700 px-4 py-2 text-sm">Conversion Focused</span>
+                        <span class="inline-flex items-center rounded-full border border-white/60 bg-white/40 backdrop-blur-md text-slate-700 px-4 py-2 text-sm">Fast Delivery</span>
+                        <span class="inline-flex items-center rounded-full border border-white/60 bg-white/40 backdrop-blur-md text-slate-700 px-4 py-2 text-sm">Scalable System</span>
+                        <span class="inline-flex items-center rounded-full border border-white/60 bg-white/40 backdrop-blur-md text-slate-700 px-4 py-2 text-sm">Conversion Focused</span>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="rounded-2xl border border-slate-200 bg-linear-to-br from-brand-100 to-brand-50 p-5">
+                    <div class="rounded-2xl border border-white/60 bg-white/45 backdrop-blur-md p-5 transition-all duration-300 hover:bg-white/55 hover:border-white hover:shadow-lg hover:shadow-slate-200/80">
                         <p class="text-xs uppercase tracking-wider text-slate-500">Projects</p>
                         <p class="mt-2 font-display text-3xl font-bold text-slate-900">120+</p>
                     </div>
-                    <div class="rounded-2xl border border-slate-200 bg-linear-to-br from-accent-100 to-accent-50 p-5">
+                    <div class="rounded-2xl border border-white/60 bg-white/45 backdrop-blur-md p-5 transition-all duration-300 hover:bg-white/55 hover:border-white hover:shadow-lg hover:shadow-slate-200/80">
                         <p class="text-xs uppercase tracking-wider text-slate-500">Avg Launch</p>
                         <p class="mt-2 font-display text-3xl font-bold text-slate-900">21 Hari</p>
                     </div>
-                    <div class="col-span-2 rounded-2xl border border-slate-200 bg-slate-900 p-5 text-left">
+                    <div class="col-span-2 rounded-2xl border border-white/20 bg-slate-900/80 backdrop-blur-md p-5 text-left transition-all duration-300 hover:bg-slate-900/90 hover:border-white/30">
                         <p class="text-xs uppercase tracking-wider text-white/70">Approach</p>
                         <p class="mt-2 text-white text-sm leading-relaxed">Strategy-first process: riset kebutuhan, desain terarah, development cepat, dan optimasi performa berkelanjutan.</p>
                     </div>
@@ -67,48 +67,48 @@
             </div>
 
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <article class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-200/70">
-                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center font-display font-bold">01</div>
+                <article class="group rounded-3xl border border-white/50 bg-white/35 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl border border-white/70 bg-white/45 text-brand-600 flex items-center justify-center font-display font-bold backdrop-blur-md">01</div>
                     <h3 class="mt-4 font-display text-2xl font-semibold text-slate-900">Web Development</h3>
                     <p class="mt-3 text-slate-600">Pembuatan website company profile, landing page, dan portal bisnis yang cepat, aman, dan responsif.</p>
                 </article>
 
-                <article class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-200/70">
-                    <div class="w-10 h-10 rounded-xl bg-accent-50 text-accent-500 flex items-center justify-center font-display font-bold">02</div>
+                <article class="group rounded-3xl border border-white/50 bg-white/35 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl border border-white/70 bg-white/45 text-accent-500 flex items-center justify-center font-display font-bold backdrop-blur-md">02</div>
                     <h3 class="mt-4 font-display text-2xl font-semibold text-slate-900">UI/UX Design</h3>
                     <p class="mt-3 text-slate-600">Desain antarmuka modern dengan alur pengguna yang jelas untuk meningkatkan engagement dan conversion.</p>
                 </article>
 
-                <article class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-200/70">
-                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center font-display font-bold">03</div>
+                <article class="group rounded-3xl border border-white/50 bg-white/35 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl border border-white/70 bg-white/45 text-brand-600 flex items-center justify-center font-display font-bold backdrop-blur-md">03</div>
                     <h3 class="mt-4 font-display text-2xl font-semibold text-slate-900">Performance Optimization</h3>
                     <p class="mt-3 text-slate-600">Optimasi loading, struktur teknis SEO, dan quality tuning agar website tetap cepat di semua perangkat.</p>
                 </article>
 
-                <article class="group rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-200/70">
-                    <div class="w-10 h-10 rounded-xl bg-accent-50 text-accent-500 flex items-center justify-center font-display font-bold">04</div>
+                <article class="group rounded-3xl border border-white/50 bg-white/35 backdrop-blur-xl p-6 shadow-lg shadow-slate-200/50 transition-all duration-300 hover:-translate-y-1 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
+                    <div class="w-10 h-10 rounded-xl border border-white/70 bg-white/45 text-accent-500 flex items-center justify-center font-display font-bold backdrop-blur-md">04</div>
                     <h3 class="mt-4 font-display text-2xl font-semibold text-slate-900">Maintenance & Support</h3>
                     <p class="mt-3 text-slate-600">Monitoring, perawatan, dan pengembangan lanjutan setelah launch agar website tetap relevan dan stabil.</p>
                 </article>
             </div>
         </section>
 
-        <section class="mt-14 rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
+        <section class="mt-14 rounded-3xl border border-white/50 bg-white/35 backdrop-blur-xl p-6 md:p-8 shadow-xl shadow-slate-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
             <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900">Proses Kerja</h2>
             <div class="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="rounded-2xl bg-white/40 backdrop-blur-md border border-white/70 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white hover:shadow-md hover:shadow-slate-200/80">
                     <p class="text-xs text-slate-500">Step 1</p>
                     <p class="mt-1 font-semibold text-slate-900">Discovery</p>
                 </div>
-                <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="rounded-2xl bg-white/40 backdrop-blur-md border border-white/70 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white hover:shadow-md hover:shadow-slate-200/80">
                     <p class="text-xs text-slate-500">Step 2</p>
                     <p class="mt-1 font-semibold text-slate-900">Design Sprint</p>
                 </div>
-                <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="rounded-2xl bg-white/40 backdrop-blur-md border border-white/70 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white hover:shadow-md hover:shadow-slate-200/80">
                     <p class="text-xs text-slate-500">Step 3</p>
                     <p class="mt-1 font-semibold text-slate-900">Build & Integrate</p>
                 </div>
-                <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4">
+                <div class="rounded-2xl bg-white/40 backdrop-blur-md border border-white/70 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white hover:shadow-md hover:shadow-slate-200/80">
                     <p class="text-xs text-slate-500">Step 4</p>
                     <p class="mt-1 font-semibold text-slate-900">Launch & Scale</p>
                 </div>
@@ -122,21 +122,21 @@
             </p>
 
             <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-                <article class="rounded-2xl border border-slate-200 overflow-hidden bg-white">
+                <article class="rounded-2xl border border-white/50 overflow-hidden bg-white/35 backdrop-blur-xl shadow-lg shadow-slate-200/50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
                     <div class="h-44 bg-linear-to-br from-brand-100 to-accent-100"></div>
                     <div class="p-5">
                         <h3 class="font-display text-xl font-semibold text-slate-900">Corporate Website</h3>
                         <p class="mt-2 text-slate-600 text-sm">Website profil perusahaan dengan fokus branding dan performa.</p>
                     </div>
                 </article>
-                <article class="rounded-2xl border border-slate-200 overflow-hidden bg-white md:translate-y-4">
+                <article class="rounded-2xl border border-white/50 overflow-hidden bg-white/35 backdrop-blur-xl shadow-lg shadow-slate-200/50 md:translate-y-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
                     <div class="h-44 bg-linear-to-br from-accent-100 to-blue-100"></div>
                     <div class="p-5">
                         <h3 class="font-display text-xl font-semibold text-slate-900">Product Landing Page</h3>
                         <p class="mt-2 text-slate-600 text-sm">Landing page kampanye produk dengan struktur konversi yang kuat.</p>
                     </div>
                 </article>
-                <article class="rounded-2xl border border-slate-200 overflow-hidden bg-white">
+                <article class="rounded-2xl border border-white/50 overflow-hidden bg-white/35 backdrop-blur-xl shadow-lg shadow-slate-200/50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
                     <div class="h-44 bg-linear-to-br from-blue-100 to-brand-100"></div>
                     <div class="p-5">
                         <h3 class="font-display text-xl font-semibold text-slate-900">Business Portal</h3>
