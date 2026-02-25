@@ -11,7 +11,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
+<body class="bg-linear-to-b from-slate-100 via-slate-50 to-slate-100 text-slate-800 font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
     <header class="sticky top-0 z-50 w-full pt-4">
         <div class="max-w-6xl mx-auto px-6">
             <div class="rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 px-5 md:px-6 py-3 flex items-center justify-between gap-4 shadow-sm">
@@ -32,9 +32,9 @@
 
     <main class="grow pb-16">
         <section class="max-w-7xl mx-auto px-6 lg:px-8 pt-6">
-            <div class="rounded-3xl bg-slate-100 p-4 md:p-6">
+            <div class="rounded-3xl border border-white/50 bg-white/35 backdrop-blur-xl p-4 md:p-6 shadow-xl shadow-slate-200/60 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/80">
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-10">
-                    <div class="rounded-2xl overflow-hidden border border-slate-200 bg-white">
+                    <div class="rounded-2xl overflow-hidden border border-white/60 bg-white/45 backdrop-blur-md transition-all duration-300 hover:bg-white/55 hover:border-white hover:shadow-lg hover:shadow-slate-200/80">
                         <img src="{{ asset('logo.png') }}" alt="Logo VarsaWeb" class="w-full min-h-80 md:min-h-130 object-cover">
                     </div>
 
@@ -60,8 +60,8 @@
             <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
                 <article class="group text-center">
                     <div class="relative h-56 flex items-end justify-center">
-                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 -rotate-6 transition-transform duration-500 ease-out group-hover:-translate-x-2 group-hover:-rotate-10 group-hover:scale-105"></div>
-                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-brand-100/80 border border-brand-200/70 shadow-md shadow-brand-100/70 -rotate-6 transition-transform duration-500 ease-out group-hover:-translate-x-2 group-hover:-rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-white/80 bg-white/45 backdrop-blur-md flex items-center justify-center text-sm font-medium text-slate-500 transition-all duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
                     </div>
                     <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Adit</h3>
                     <p class="mt-1 text-2xl text-slate-500">Project Lead</p>
@@ -69,8 +69,8 @@
 
                 <article class="group text-center">
                     <div class="relative h-56 flex items-end justify-center">
-                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 rotate-6 transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:rotate-10 group-hover:scale-105"></div>
-                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-brand-100/80 border border-brand-200/70 shadow-md shadow-brand-100/70 rotate-6 transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-white/80 bg-white/45 backdrop-blur-md flex items-center justify-center text-sm font-medium text-slate-500 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
                     </div>
                     <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Nisa</h3>
                     <p class="mt-1 text-2xl text-slate-500">UI/UX Designer</p>
@@ -78,8 +78,8 @@
 
                 <article class="group text-center">
                     <div class="relative h-56 flex items-end justify-center">
-                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 -rotate-6 transition-transform duration-500 ease-out group-hover:-translate-x-2 group-hover:-rotate-10 group-hover:scale-105"></div>
-                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-brand-100/80 border border-brand-200/70 shadow-md shadow-brand-100/70 -rotate-6 transition-transform duration-500 ease-out group-hover:-translate-x-2 group-hover:-rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-white/80 bg-white/45 backdrop-blur-md flex items-center justify-center text-sm font-medium text-slate-500 transition-all duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
                     </div>
                     <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Rafi</h3>
                     <p class="mt-1 text-2xl text-slate-500">Frontend Engineer</p>
@@ -87,8 +87,8 @@
 
                 <article class="group text-center">
                     <div class="relative h-56 flex items-end justify-center">
-                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 rotate-6 transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:rotate-10 group-hover:scale-105"></div>
-                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-brand-100/80 border border-brand-200/70 shadow-md shadow-brand-100/70 rotate-6 transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-white/80 bg-white/45 backdrop-blur-md flex items-center justify-center text-sm font-medium text-slate-500 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
                     </div>
                     <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Dewi</h3>
                     <p class="mt-1 text-2xl text-slate-500">Backend Engineer</p>
