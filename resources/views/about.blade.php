@@ -12,19 +12,21 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen overflow-x-hidden">
-    <header class="w-full py-8">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <div class="w-12 h-12 rounded-xl bg-linear-to-br from-brand-500 to-accent-500 flex items-center justify-center text-white font-display font-bold text-2xl shadow-lg group-hover:shadow-brand-500/50 transition-all duration-300 group-hover:scale-105">
-                    V
-                </div>
-                <span class="font-display font-bold text-3xl text-slate-900 tracking-tight">VarsaWeb</span>
-            </a>
-            <nav class="flex items-center gap-6 text-sm text-slate-600">
-                <a href="{{ route('about') }}" class="text-brand-600 font-medium">About Us</a>
-                <a href="{{ route('services') }}" class="hover:text-slate-900 transition-colors">Services</a>
-                <a href="{{ route('contact') }}" class="hover:text-slate-900 transition-colors">Contact</a>
-            </nav>
+    <header class="sticky top-0 z-50 w-full pt-4">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 px-5 md:px-6 py-3 flex items-center justify-between gap-4 shadow-sm">
+                <nav class="flex items-center gap-4 md:gap-6 text-sm text-white/85">
+                    <a href="{{ route('about') }}" class="text-brand-600 font-semibold">About</a>
+                    <a href="{{ route('services') }}" class="hover:text-white transition-colors">Services</a>
+                    <a href="{{ route('contact') }}" class="hover:text-white transition-colors">Contact</a>
+                </nav>
+
+                <a href="{{ route('home') }}" class="font-display text-2xl font-bold text-slate-900 tracking-tight">VarsaWeb</a>
+
+                <a href="{{ route('contact') }}" class="inline-flex items-center rounded-full bg-brand-500 hover:bg-brand-600 text-white text-sm font-medium px-4 py-2 transition-colors">
+                    Contact us
+                </a>
+            </div>
         </div>
     </header>
 
