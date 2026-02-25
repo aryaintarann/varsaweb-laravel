@@ -32,50 +32,66 @@
 
     <main class="grow pb-16">
         <section class="max-w-7xl mx-auto px-6 lg:px-8 pt-6">
-            <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-900">Tentang VarsaWeb</h1>
-            <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-4xl">
-                VarsaWeb adalah agensi digital yang berfokus pada pengembangan website modern untuk brand, bisnis, dan organisasi. Kami memadukan strategi, desain, dan teknologi untuk menghasilkan pengalaman web yang cepat, menarik, dan berdampak langsung pada pertumbuhan bisnis.
-            </p>
-        </section>
+            <div class="rounded-3xl bg-slate-100 p-4 md:p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-10">
+                    <div class="rounded-2xl overflow-hidden border border-slate-200 bg-white">
+                        <img src="{{ asset('logo.png') }}" alt="Logo VarsaWeb" class="w-full min-h-80 md:min-h-130 object-cover">
+                    </div>
 
-        <section class="max-w-7xl mx-auto px-6 lg:px-8 mt-12">
-            <div class="bg-white rounded-3xl border border-slate-200 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
-                <div class="w-28 h-28 rounded-3xl bg-linear-to-br from-brand-500 to-accent-500 flex items-center justify-center text-white font-display font-bold text-5xl shadow-lg">
-                    V
-                </div>
-                <div>
-                    <h2 class="font-display text-3xl font-bold text-slate-900">Logo VarsaWeb</h2>
-                    <p class="mt-3 text-slate-600 leading-relaxed max-w-3xl">
-                        Logo VarsaWeb merepresentasikan semangat inovasi dan ketepatan dalam membangun solusi digital. Bentuk yang tegas dan warna yang dinamis mencerminkan komitmen kami terhadap kualitas, kreativitas, dan kecepatan eksekusi.
-                    </p>
+                    <div class="text-center">
+                        <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-900">About Us</h1>
+                        <p class="mt-5 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                            Selamat datang di VarsaWeb. Sejak berdiri, kami berkomitmen membantu bisnis memiliki website modern yang cepat, mudah diakses, dan siap digunakan sebagai fondasi pertumbuhan digital.
+                        </p>
+                        <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                            Di VarsaWeb, kami menggabungkan strategi, desain, dan teknologi dalam satu proses kerja yang terarah. Didukung tim berpengalaman, kami memastikan setiap proyek dikerjakan dengan standar kualitas profesional.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="max-w-7xl mx-auto px-6 lg:px-8 mt-12">
-            <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900">VarsaWeb Team</h2>
-            <p class="mt-4 text-slate-600 max-w-3xl">Tim kami terdiri dari talenta multidisiplin yang bekerja kolaboratif untuk menghasilkan website dengan kualitas terbaik.</p>
+        <section class="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
+            <div class="text-center">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900">VarsaWeb Team</h2>
+                <p class="mt-4 text-slate-600 max-w-3xl mx-auto">Tim kami terdiri dari talenta multidisiplin yang bekerja kolaboratif untuk menghasilkan website dengan kualitas terbaik.</p>
+            </div>
 
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <article class="bg-white rounded-2xl border border-slate-200 p-6 text-center">
-                    <div class="w-14 h-14 rounded-full bg-brand-50 text-brand-600 mx-auto flex items-center justify-center font-display font-bold text-xl">AD</div>
-                    <h3 class="mt-4 font-display text-xl font-semibold text-slate-900">Adit</h3>
-                    <p class="mt-1 text-sm text-slate-500">Project Lead</p>
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+                <article class="group text-center">
+                    <div class="relative h-56 flex items-end justify-center">
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 -rotate-6 transition-transform duration-500 ease-out group-hover:-translate-x-2 group-hover:-rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                    </div>
+                    <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Adit</h3>
+                    <p class="mt-1 text-2xl text-slate-500">Project Lead</p>
                 </article>
-                <article class="bg-white rounded-2xl border border-slate-200 p-6 text-center">
-                    <div class="w-14 h-14 rounded-full bg-accent-50 text-accent-500 mx-auto flex items-center justify-center font-display font-bold text-xl">NS</div>
-                    <h3 class="mt-4 font-display text-xl font-semibold text-slate-900">Nisa</h3>
-                    <p class="mt-1 text-sm text-slate-500">UI/UX Designer</p>
+
+                <article class="group text-center">
+                    <div class="relative h-56 flex items-end justify-center">
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 rotate-6 transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                    </div>
+                    <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Nisa</h3>
+                    <p class="mt-1 text-2xl text-slate-500">UI/UX Designer</p>
                 </article>
-                <article class="bg-white rounded-2xl border border-slate-200 p-6 text-center">
-                    <div class="w-14 h-14 rounded-full bg-blue-50 text-blue-500 mx-auto flex items-center justify-center font-display font-bold text-xl">RF</div>
-                    <h3 class="mt-4 font-display text-xl font-semibold text-slate-900">Rafi</h3>
-                    <p class="mt-1 text-sm text-slate-500">Frontend Engineer</p>
+
+                <article class="group text-center">
+                    <div class="relative h-56 flex items-end justify-center">
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 -rotate-6 transition-transform duration-500 ease-out group-hover:-translate-x-2 group-hover:-rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                    </div>
+                    <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Rafi</h3>
+                    <p class="mt-1 text-2xl text-slate-500">Frontend Engineer</p>
                 </article>
-                <article class="bg-white rounded-2xl border border-slate-200 p-6 text-center">
-                    <div class="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 mx-auto flex items-center justify-center font-display font-bold text-xl">DW</div>
-                    <h3 class="mt-4 font-display text-xl font-semibold text-slate-900">Dewi</h3>
-                    <p class="mt-1 text-sm text-slate-500">Backend Engineer</p>
+
+                <article class="group text-center">
+                    <div class="relative h-56 flex items-end justify-center">
+                        <div class="absolute bottom-4 w-40 h-36 rounded-[2.5rem] bg-slate-200/80 rotate-6 transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:rotate-10 group-hover:scale-105"></div>
+                        <div class="relative w-40 h-44 rounded-3xl border border-dashed border-slate-300 bg-white/80 flex items-center justify-center text-sm font-medium text-slate-400 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">Foto PNG</div>
+                    </div>
+                    <h3 class="mt-4 font-display text-4xl font-bold text-slate-900">Dewi</h3>
+                    <p class="mt-1 text-2xl text-slate-500">Backend Engineer</p>
                 </article>
             </div>
         </section>
