@@ -103,7 +103,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="flex-[2] min-w-[200px]">
+                        <div class="flex-2 min-w-[200px]">
                             <label class="block text-xs text-slate-500 mb-1">URL / Link</label>
                             <input type="url" name="url" value="{{ $link->url }}" required
                                 class="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
@@ -135,7 +135,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="flex-[2] min-w-[200px]">
+                    <div class="flex-2 min-w-[200px]">
                         <label class="block text-xs text-slate-500 mb-1">URL / Link</label>
                         <input type="url" name="url" required
                             class="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all"
