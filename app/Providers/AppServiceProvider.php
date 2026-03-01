@@ -19,6 +19,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        \Illuminate\Support\Facades\View::composer(['partials.footer', 'contact'], function ($view) {
+            $view->with('socialLinks', \App\Models\SocialLink::orderBy('sort_order')->get());
+        });
     }
 }
