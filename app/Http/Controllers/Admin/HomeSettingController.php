@@ -12,7 +12,6 @@ class HomeSettingController extends Controller
     public function edit()
     {
         $setting = HomeSetting::firstOrCreate(['id' => 1], [
-            'badge_text' => 'Welcome to the Future',
             'hero_title' => 'Weaving the Web of Tomorrow',
             'hero_description' => '',
         ]);
@@ -23,7 +22,6 @@ class HomeSettingController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'badge_text' => ['required', 'string', 'max:255'],
             'hero_title' => ['required', 'string', 'max:255'],
             'hero_description' => ['required', 'string'],
             'hero_image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
@@ -40,7 +38,6 @@ class HomeSettingController extends Controller
             $setting->hero_image_url = $path;
         }
 
-        $setting->badge_text = $validated['badge_text'];
         $setting->hero_title = $validated['hero_title'];
         $setting->hero_description = $validated['hero_description'];
         $setting->save();

@@ -27,7 +27,6 @@ class CmsSeeder extends Seeder
         );
 
         HomeSetting::firstOrCreate(['id' => 1], [
-            'badge_text' => 'Welcome to the Future',
             'hero_title' => 'Weaving the Web of Tomorrow',
             'hero_description' => 'We craft high-performance, visually stunning digital experiences that elevate brands and drive measurable growth in a connected world.',
             'hero_image_url' => 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',

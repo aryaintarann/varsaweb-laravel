@@ -33,11 +33,7 @@
             <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="order-2 lg:order-1 text-center lg:text-left flex flex-col justify-center">
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/45 border border-white/70 backdrop-blur-md text-brand-600 text-sm font-medium w-fit mx-auto lg:mx-0 mb-6 shadow-md shadow-slate-200/35">
-                            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                            {{ $homeSetting->badge_text ?? 'Welcome to the Future' }}
-                        </div>
+
                         <h1
                             class="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-slate-900 leading-[1.1] mb-6">
                             {!! nl2br(e($homeSetting->hero_title ?? 'Weaving the Web of Tomorrow')) !!}
