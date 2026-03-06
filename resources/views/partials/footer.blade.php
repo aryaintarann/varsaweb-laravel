@@ -2,12 +2,12 @@
 <footer class="mt-14 pb-10">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div
-            class="rounded-2xl border border-white/50 bg-white/40 backdrop-blur-xl p-10 shadow-xl shadow-slate-200/40 transition-all duration-300 hover:bg-white/50 hover:border-white/80">
+            class="rounded-2xl border border-white/50 dark:border-slate-600/40 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl p-10 shadow-xl shadow-slate-200/40 dark:shadow-slate-900/40 transition-all duration-300 hover:bg-white/50 dark:hover:bg-slate-700/50 hover:border-white/80 dark:hover:border-slate-500/60">
             <div
-                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center text-center md:text-left text-slate-700">
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center text-center md:text-left text-slate-700 dark:text-slate-300">
                 <div class="flex flex-col items-center md:items-start">
                     <div class="mb-4">
-                        <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873" class="h-20 md:h-24 w-auto object-contain">
+                        <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873" class="h-20 md:h-24 w-auto object-contain dark:brightness-90">
                     </div>
                     <p class="text-sm max-w-xs">
                         {{ $footerSetting->tagline ?? 'Weaving the web of tomorrow through innovative design and cutting-edge technology.' }}
@@ -15,10 +15,10 @@
                 </div>
 
                 <div class="flex flex-col items-center md:items-start">
-                    <h3 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Contact Information</h3>
+                    <h3 class="text-slate-900 dark:text-white font-bold mb-4 uppercase tracking-wider text-sm">Contact Information</h3>
                     <ul class="space-y-3 text-sm">
                         <li class="flex items-center gap-3 justify-center md:justify-start">
-                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-brand-500 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
                                 </path>
@@ -28,7 +28,7 @@
                             {{ $footerSetting->address ?? '123 Tech Lane, Innovation City, CA' }}
                         </li>
                         <li class="flex items-center gap-3 justify-center md:justify-start">
-                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-brand-500 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                                 </path>
@@ -36,7 +36,7 @@
                             {{ $footerSetting->email ?? 'hello@varsaweb.com' }}
                         </li>
                         <li class="flex items-center gap-3 justify-center md:justify-start">
-                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-brand-500 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
                                 </path>
@@ -47,11 +47,11 @@
                 </div>
 
                 <div class="flex flex-col items-center md:items-end">
-                    <h3 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Follow Us</h3>
+                    <h3 class="text-slate-900 dark:text-white font-bold mb-4 uppercase tracking-wider text-sm">Follow Us</h3>
                     <div class="flex gap-4 flex-wrap">
                         @foreach($socialLinks as $link)
                             <a href="{{ $link->url }}" target="_blank" rel="noopener noreferrer" title="{{ $link->platform }}"
-                                class="w-10 h-10 rounded-full bg-white/45 backdrop-blur-md text-slate-700 border border-white/70 flex items-center justify-center transition-all duration-300 hover:bg-white/60 hover:border-white hover:shadow-md hover:shadow-slate-200/55">
+                                class="w-10 h-10 rounded-full bg-white/45 dark:bg-slate-700/45 backdrop-blur-md text-slate-700 dark:text-slate-300 border border-white/70 dark:border-slate-600/50 flex items-center justify-center transition-all duration-300 hover:bg-white/60 dark:hover:bg-brand-600 hover:border-white dark:hover:border-brand-500 hover:shadow-md hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55 hover:text-brand-600 dark:hover:text-white">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     @switch(strtolower($link->platform))
                                         @case('twitter')
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div
-                class="mt-10 pt-6 border-t border-white/60 text-center text-xs text-slate-600 md:col-span-2 lg:col-span-3">
+                class="mt-10 pt-6 border-t border-white/60 dark:border-slate-600/40 text-center text-xs text-slate-600 dark:text-slate-400 md:col-span-2 lg:col-span-3">
                 <p>{{ $footerSetting->copyright_text ?? '© 2026 VarsaWeb Agency. All rights reserved.' }}</p>
             </div>
         </div>

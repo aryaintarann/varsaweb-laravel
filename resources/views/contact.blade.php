@@ -5,75 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | VarsaWeb</title>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen bg-[#B7C0C6] text-slate-800 font-sans antialiased">
-    <header class="sticky top-0 z-50 w-full pt-4">
-        <div class="max-w-6xl mx-auto px-6">
-            <div
-                class="relative rounded-2xl border border-white/50 bg-white/40 backdrop-blur-xl px-5 md:px-6 py-3 flex items-center justify-between gap-4 shadow-xl shadow-slate-200/40 transition-all duration-300 hover:bg-white/50 hover:border-white/80">
-                <nav class="hidden md:flex items-center gap-4 md:gap-6 text-sm text-slate-700">
-                    <a href="{{ route('about') }}"
-                        class="relative pb-1 transition-colors hover:text-brand-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-brand-500 after:transition-all after:duration-300 hover:after:w-full">About</a>
-                    <a href="{{ route('services') }}"
-                        class="relative pb-1 transition-colors hover:text-brand-600 after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-brand-500 after:transition-all after:duration-300 hover:after:w-full">Services</a>
-                    <a href="{{ route('contact') }}"
-                        class="relative pb-1 text-brand-600 font-semibold after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-brand-500">Contact</a>
-                </nav>
+<body class="min-h-screen bg-[#B7C0C6] dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
 
-                <a href="{{ route('home') }}" class="inline-flex items-center">
-                    <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873"
-                        class="h-12 md:h-14 w-auto max-w-72 object-contain">
-                </a>
-
-                <a href="{{ route('contact') }}"
-                    class="hidden md:inline-flex items-center rounded-full border border-white/70 bg-white/45 backdrop-blur-md text-brand-700 text-sm font-medium px-4 py-2 shadow-sm transition-all duration-300 hover:bg-white/60 hover:border-white hover:shadow-md">
-                    Contact us
-                </a>
-
-                <details class="md:hidden group ml-auto">
-                    <summary
-                        class="list-none cursor-pointer inline-flex items-center justify-center w-10 h-10 rounded-xl border border-white/70 bg-white/45 backdrop-blur-md text-slate-700 hover:bg-white/60 hover:border-white transition-all duration-300">
-                        <svg class="w-5 h-5 transition-transform duration-300 ease-out group-open:rotate-90" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </summary>
-                    <div
-                        class="absolute left-0 right-0 top-full mt-2 rounded-2xl border border-white/60 bg-white/80 backdrop-blur-xl p-3 shadow-xl shadow-slate-200/40 z-40 origin-top opacity-0 -translate-y-1 scale-95 pointer-events-none transition-all duration-300 ease-out group-open:opacity-100 group-open:translate-y-0 group-open:scale-100 group-open:pointer-events-auto">
-                        <nav class="flex flex-col gap-1 text-sm text-slate-700">
-                            <a href="{{ route('about') }}"
-                                class="rounded-lg px-3 py-2 hover:bg-white/70 transition-colors">About</a>
-                            <a href="{{ route('services') }}"
-                                class="rounded-lg px-3 py-2 hover:bg-white/70 transition-colors">Services</a>
-                            <a href="{{ route('contact') }}"
-                                class="rounded-lg px-3 py-2 bg-white/70 text-brand-600 font-semibold">Contact</a>
-                        </nav>
-                    </div>
-                </details>
-            </div>
-        </div>
-    </header>
+    @include('partials.navbar', ['activePage' => 'contact'])
 
     <main class="max-w-6xl mx-auto px-6 py-16">
         <section
-            class="rounded-3xl border border-white/50 bg-white/40 backdrop-blur-xl p-6 md:p-10 shadow-xl shadow-slate-200/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/50 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/55">
+            class="rounded-3xl border border-white/50 dark:border-slate-600/40 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl p-6 md:p-10 shadow-xl shadow-slate-200/40 dark:shadow-slate-900/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/50 dark:hover:bg-slate-700/50 hover:border-white/80 dark:hover:border-slate-500/60 hover:shadow-2xl hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div>
-                    <span
-                        class="inline-flex items-center rounded-full border border-white/60 bg-white/40 backdrop-blur-md text-brand-600 px-3 py-1 text-xs font-medium">{{ $contactSetting->badge_text ?? "Let's Collaborate" }}</span>
-                    <h1 class="mt-4 font-display text-4xl md:text-5xl font-bold text-slate-900">
+                    <h1 class="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
                         {{ $contactSetting->title ?? 'Get in Touch' }}</h1>
-                    <p class="mt-5 text-lg text-slate-600 leading-relaxed max-w-xl">
+                    <p class="mt-5 text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">
                         {{ $contactSetting->description ?? '' }}
                     </p>
                     <div class="mt-6 flex flex-wrap gap-3">
                         @foreach([$contactSetting->badge_1 ?? null, $contactSetting->badge_2 ?? null, $contactSetting->badge_3 ?? null] as $badge)
                             @if($badge)
                                 <span
-                                    class="inline-flex items-center rounded-full border border-white/60 bg-white/40 backdrop-blur-md text-slate-700 px-4 py-2 text-sm">{{ $badge }}</span>
+                                    class="inline-flex items-center rounded-full border border-white/60 dark:border-slate-600/40 bg-white/40 dark:bg-slate-700/40 backdrop-blur-md text-slate-700 dark:text-slate-300 px-4 py-2 text-sm">{{ $badge }}</span>
                             @endif
                         @endforeach
                     </div>
@@ -81,31 +39,29 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <article
-                        class="rounded-2xl border border-white/60 bg-white/40 backdrop-blur-md p-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white/80 hover:shadow-lg hover:shadow-slate-200/55">
-                        <p class="text-xs uppercase tracking-wider text-slate-500">Email</p>
-                        <p class="mt-2 font-semibold text-slate-900">{{ $contactSetting->email ?? 'hello@varsaweb.com'
-                            }}</p>
+                        class="rounded-2xl border border-white/60 dark:border-slate-600/40 bg-white/40 dark:bg-slate-700/40 backdrop-blur-md p-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white/80 dark:hover:border-slate-500 hover:shadow-lg hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
+                        <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Email</p>
+                        <p class="mt-2 font-semibold text-slate-900 dark:text-white">{{ $contactSetting->email ?? 'hello@varsaweb.com' }}</p>
                     </article>
                     <article
-                        class="rounded-2xl border border-white/60 bg-white/40 backdrop-blur-md p-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white/80 hover:shadow-lg hover:shadow-slate-200/55">
-                        <p class="text-xs uppercase tracking-wider text-slate-500">Telepon</p>
-                        <p class="mt-2 font-semibold text-slate-900">{{ $contactSetting->phone ?? '+1 (555) 123-4567' }}
-                        </p>
+                        class="rounded-2xl border border-white/60 dark:border-slate-600/40 bg-white/40 dark:bg-slate-700/40 backdrop-blur-md p-5 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white/80 dark:hover:border-slate-500 hover:shadow-lg hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
+                        <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Telepon</p>
+                        <p class="mt-2 font-semibold text-slate-900 dark:text-white">{{ $contactSetting->phone ?? '+1 (555) 123-4567' }}</p>
                     </article>
                     <article
-                        class="rounded-2xl border border-white/60 bg-white/40 backdrop-blur-md p-5 sm:col-span-2 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white/80 hover:shadow-lg hover:shadow-slate-200/55">
-                        <p class="text-xs uppercase tracking-wider text-slate-500">Jam Operasional</p>
-                        <p class="mt-2 text-slate-700">
+                        class="rounded-2xl border border-white/60 dark:border-slate-600/40 bg-white/40 dark:bg-slate-700/40 backdrop-blur-md p-5 sm:col-span-2 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white/80 dark:hover:border-slate-500 hover:shadow-lg hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
+                        <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Jam Operasional</p>
+                        <p class="mt-2 text-slate-700 dark:text-slate-300">
                             {{ $contactSetting->operating_hours ?? 'Senin - Jumat 09.00 - 18.00' }}</p>
                     </article>
 
                     @if(isset($socialLinks) && $socialLinks->count() > 0)
-                        <article class="rounded-2xl border border-white/60 bg-white/40 backdrop-blur-md p-5 sm:col-span-2 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white/80 hover:shadow-lg hover:shadow-slate-200/55">
-                            <p class="text-xs uppercase tracking-wider text-slate-500 mb-4">Sosial Media</p>
+                        <article class="rounded-2xl border border-white/60 dark:border-slate-600/40 bg-white/40 dark:bg-slate-700/40 backdrop-blur-md p-5 sm:col-span-2 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white/80 dark:hover:border-slate-500 hover:shadow-lg hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
+                            <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-4">Sosial Media</p>
                             <div class="flex gap-4 flex-wrap">
                                 @foreach($socialLinks as $link)
                                     <a href="{{ $link->url }}" target="_blank" rel="noopener noreferrer" title="{{ $link->platform }}"
-                                        class="w-10 h-10 rounded-full bg-white/45 backdrop-blur-md text-slate-700 border border-white/70 flex items-center justify-center transition-all duration-300 hover:bg-white/60 hover:border-white hover:shadow-md hover:shadow-stroke-brand-500/50 hover:text-brand-600">
+                                        class="w-10 h-10 rounded-full bg-white/45 dark:bg-slate-600/45 backdrop-blur-md text-slate-700 dark:text-slate-300 border border-white/70 dark:border-slate-500/50 flex items-center justify-center transition-all duration-300 hover:bg-white/60 dark:hover:bg-brand-600 hover:border-white dark:hover:border-brand-500 hover:shadow-md hover:text-brand-600 dark:hover:text-white">
                                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                             @switch(strtolower($link->platform))
                                                 @case('twitter')
@@ -141,37 +97,36 @@
 
         <section class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
             <article
-                class="lg:col-span-2 rounded-3xl border border-white/50 bg-white/40 backdrop-blur-xl p-6 md:p-8 shadow-xl shadow-slate-200/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/50 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/55">
-                <h2 class="font-display text-2xl font-semibold text-slate-900">Form Kontak</h2>
-                <p class="mt-2 text-slate-600">Isi form berikut, dan tim kami akan menghubungi Anda secepatnya.</p>
+                class="lg:col-span-2 rounded-3xl border border-white/50 dark:border-slate-600/40 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl p-6 md:p-8 shadow-xl shadow-slate-200/40 dark:shadow-slate-900/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/50 dark:hover:bg-slate-700/50 hover:border-white/80 dark:hover:border-slate-500/60 hover:shadow-2xl hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
+                <h2 class="font-display text-2xl font-semibold text-slate-900 dark:text-white">Form Kontak</h2>
+                <p class="mt-2 text-slate-600 dark:text-slate-400">Isi form berikut, dan tim kami akan menghubungi Anda secepatnya.</p>
 
                 <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5" method="POST" action="#">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-slate-700">Nama</label>
+                        <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Nama</label>
                         <input id="name" name="name" type="text"
-                            class="mt-2 w-full rounded-xl border border-white/70 bg-white/45 backdrop-blur-md px-4 py-3 shadow-inner shadow-white/30 transition-all duration-300 hover:bg-white/55 hover:border-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                            class="mt-2 w-full rounded-xl border border-white/70 dark:border-slate-600/50 bg-white/45 dark:bg-slate-700/45 backdrop-blur-md px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-inner shadow-white/30 dark:shadow-slate-900/20 transition-all duration-300 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white dark:hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="Nama Anda">
                     </div>
 
                     <div>
-                        <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+                        <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
                         <input id="email" name="email" type="email"
-                            class="mt-2 w-full rounded-xl border border-white/70 bg-white/45 backdrop-blur-md px-4 py-3 shadow-inner shadow-white/30 transition-all duration-300 hover:bg-white/55 hover:border-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                            class="mt-2 w-full rounded-xl border border-white/70 dark:border-slate-600/50 bg-white/45 dark:bg-slate-700/45 backdrop-blur-md px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-inner shadow-white/30 dark:shadow-slate-900/20 transition-all duration-300 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white dark:hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="email@domain.com">
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="service" class="block text-sm font-medium text-slate-700">Layanan yang
-                            Dibutuhkan</label>
+                        <label for="service" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Layanan yang Dibutuhkan</label>
                         <input id="service" name="service" type="text"
-                            class="mt-2 w-full rounded-xl border border-white/70 bg-white/45 backdrop-blur-md px-4 py-3 shadow-inner shadow-white/30 transition-all duration-300 hover:bg-white/55 hover:border-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                            class="mt-2 w-full rounded-xl border border-white/70 dark:border-slate-600/50 bg-white/45 dark:bg-slate-700/45 backdrop-blur-md px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-inner shadow-white/30 dark:shadow-slate-900/20 transition-all duration-300 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white dark:hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="Contoh: Company Profile Website">
                     </div>
 
                     <div class="md:col-span-2">
-                        <label for="message" class="block text-sm font-medium text-slate-700">Pesan</label>
+                        <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Pesan</label>
                         <textarea id="message" name="message" rows="5"
-                            class="mt-2 w-full rounded-xl border border-white/70 bg-white/45 backdrop-blur-md px-4 py-3 shadow-inner shadow-white/30 transition-all duration-300 hover:bg-white/55 hover:border-white focus:outline-none focus:ring-2 focus:ring-brand-500"
+                            class="mt-2 w-full rounded-xl border border-white/70 dark:border-slate-600/50 bg-white/45 dark:bg-slate-700/45 backdrop-blur-md px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-inner shadow-white/30 dark:shadow-slate-900/20 transition-all duration-300 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white dark:hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500"
                             placeholder="Jelaskan kebutuhan proyek Anda"></textarea>
                     </div>
 
@@ -185,16 +140,15 @@
             </article>
 
             <aside
-                class="rounded-3xl border border-white/50 bg-white/40 backdrop-blur-xl p-6 shadow-xl shadow-slate-200/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/50 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/55">
-                <h3 class="font-display text-2xl font-semibold text-slate-900">Connect</h3>
-                <p class="mt-2 text-slate-600 text-sm">Ikuti sosial media kami untuk update insight dan project terbaru.
-                </p>
+                class="rounded-3xl border border-white/50 dark:border-slate-600/40 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl p-6 shadow-xl shadow-slate-200/40 dark:shadow-slate-900/40 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/50 dark:hover:bg-slate-700/50 hover:border-white/80 dark:hover:border-slate-500/60 hover:shadow-2xl hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
+                <h3 class="font-display text-2xl font-semibold text-slate-900 dark:text-white">Connect</h3>
+                <p class="mt-2 text-slate-600 dark:text-slate-400 text-sm">Ikuti sosial media kami untuk update insight dan project terbaru.</p>
 
                 <div class="mt-5 grid grid-cols-3 gap-3">
                     @if(isset($socialLinks) && $socialLinks->count() > 0)
                         @foreach($socialLinks as $link)
                             <a href="{{ $link->url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $link->platform }}" title="{{ $link->platform }}"
-                                class="h-12 rounded-xl bg-white/45 backdrop-blur-md text-slate-700 border border-white/70 flex items-center justify-center hover:bg-brand-500 hover:text-white hover:border-brand-500 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:shadow-slate-200/55">
+                                class="h-12 rounded-xl bg-white/45 dark:bg-slate-700/45 backdrop-blur-md text-slate-700 dark:text-slate-300 border border-white/70 dark:border-slate-600/50 flex items-center justify-center hover:bg-brand-500 dark:hover:bg-brand-600 hover:text-white dark:hover:text-white hover:border-brand-500 dark:hover:border-brand-500 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     @switch(strtolower($link->platform))
                                         @case('twitter')
@@ -225,9 +179,9 @@
                 </div>
 
                 <div
-                    class="mt-6 rounded-2xl bg-white/40 backdrop-blur-md border border-white/70 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 hover:border-white hover:shadow-lg hover:shadow-slate-200/55">
-                    <p class="text-xs uppercase tracking-wider text-slate-500">Response Time</p>
-                    <p class="mt-1 font-semibold text-slate-900">Dalam 1x24 jam kerja</p>
+                    class="mt-6 rounded-2xl bg-white/40 dark:bg-slate-700/40 backdrop-blur-md border border-white/70 dark:border-slate-600/40 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/55 dark:hover:bg-slate-600/55 hover:border-white dark:hover:border-slate-500 hover:shadow-lg hover:shadow-slate-200/55 dark:hover:shadow-slate-900/55">
+                    <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400">Response Time</p>
+                    <p class="mt-1 font-semibold text-slate-900 dark:text-white">Dalam 1x24 jam kerja</p>
                 </div>
             </aside>
         </section>
