@@ -39,7 +39,7 @@ class ServiceController extends Controller
         Service::create([
             'title'       => $validated['title'],
             'description' => Purifier::clean($validated['description']),
-            'sort_order'  => $validated['sort_order'] ?? null,
+            'sort_order'  => $validated['sort_order'] ?? (Service::max('sort_order') + 1),
         ]);
 
         return redirect()->route('admin.services.index')->with('success', 'Service berhasil ditambahkan.');
@@ -61,7 +61,7 @@ class ServiceController extends Controller
         $service->update([
             'title'       => $validated['title'],
             'description' => Purifier::clean($validated['description']),
-            'sort_order'  => $validated['sort_order'] ?? null,
+            'sort_order'  => $validated['sort_order'] ?? $service->sort_order,
         ]);
 
         return redirect()->route('admin.services.index')->with('success', 'Service berhasil diperbarui.');
@@ -116,7 +116,11 @@ class ServiceController extends Controller
             'sort_order' => ['nullable', 'integer'],
         ]);
 
-        WorkProcess::create($validated);
+        WorkProcess::create([
+            'step_label' => $validated['step_label'],
+            'title'      => $validated['title'],
+            'sort_order' => $validated['sort_order'] ?? (WorkProcess::max('sort_order') + 1),
+        ]);
 
         return back()->with('success', 'Step berhasil ditambahkan.');
     }
@@ -129,7 +133,11 @@ class ServiceController extends Controller
             'sort_order' => ['nullable', 'integer'],
         ]);
 
-        $process->update($validated);
+        $process->update([
+            'step_label' => $validated['step_label'],
+            'title'      => $validated['title'],
+            'sort_order' => $validated['sort_order'] ?? $process->sort_order,
+        ]);
 
         return back()->with('success', 'Step berhasil diperbarui.');
     }
@@ -154,6 +162,7 @@ class ServiceController extends Controller
             'title'             => $validated['title'],
             'short_description' => $validated['short_description'],
             'description'       => isset($validated['description']) ? Purifier::clean($validated['description']) : '',
+            'sort_order'        => Portfolio::max('sort_order') + 1,
         ];
 
         if ($request->hasFile('image')) {

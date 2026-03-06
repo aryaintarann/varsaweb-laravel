@@ -171,6 +171,7 @@
             content_style: 'body { font-family: Inter, sans-serif; font-size: 14px; color: #cbd5e1; background: #1e293b; } a { color: #38bdf8; }',
         });
     </script>
+    @stack('scripts')
 </body>
 
 </html>
