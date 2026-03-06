@@ -23,7 +23,7 @@
                 </nav>
 
                 <a href="{{ route('home') }}" class="inline-flex items-center">
-                    <img src="{{ asset('navbar.png') }}" alt="VarsaWeb"
+                    <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873"
                         class="h-12 md:h-14 w-auto max-w-72 object-contain">
                 </a>
 
@@ -161,6 +161,7 @@
                             class="block rounded-2xl border border-white/50 overflow-hidden bg-white/35 backdrop-blur-xl shadow-lg shadow-slate-200/35 {{ $index === 1 ? 'md:translate-y-4' : '' }} transition-all duration-300 hover:-translate-y-1 hover:bg-white/45 hover:border-white/80 hover:shadow-2xl hover:shadow-slate-200/55 group">
                             @if($portfolio->image)
                                 <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}"
+                                    width="400" height="176"
                                     class="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105">
                             @else
                                 @php

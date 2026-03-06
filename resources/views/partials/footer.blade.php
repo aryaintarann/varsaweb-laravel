@@ -7,7 +7,7 @@
                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center text-center md:text-left text-slate-700">
                 <div class="flex flex-col items-center md:items-start">
                     <div class="mb-4">
-                        <img src="{{ asset('navbar.png') }}" alt="VarsaWeb" class="h-20 md:h-24 w-auto object-contain">
+                        <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873" class="h-20 md:h-24 w-auto object-contain">
                     </div>
                     <p class="text-sm max-w-xs">
                         {{ $footerSetting->tagline ?? 'Weaving the web of tomorrow through innovative design and cutting-edge technology.' }}
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="flex flex-col items-center md:items-start">
-                    <h4 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Contact Information</h4>
+                    <h3 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Contact Information</h3>
                     <ul class="space-y-3 text-sm">
                         <li class="flex items-center gap-3 justify-center md:justify-start">
                             <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="flex flex-col items-center md:items-end">
-                    <h4 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Follow Us</h4>
+                    <h3 class="text-slate-900 font-bold mb-4 uppercase tracking-wider text-sm">Follow Us</h3>
                     <div class="flex gap-4 flex-wrap">
                         @foreach($socialLinks as $link)
                             <a href="{{ $link->url }}" target="_blank" rel="noopener noreferrer" title="{{ $link->platform }}"
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div
-                class="mt-10 pt-6 border-t border-white/60 text-center text-xs text-slate-500 md:col-span-2 lg:col-span-3">
+                class="mt-10 pt-6 border-t border-white/60 text-center text-xs text-slate-600 md:col-span-2 lg:col-span-3">
                 <p>{{ $footerSetting->copyright_text ?? '© 2026 VarsaWeb Agency. All rights reserved.' }}</p>
             </div>
         </div>

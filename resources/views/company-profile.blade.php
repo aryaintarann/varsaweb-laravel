@@ -8,9 +8,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -22,7 +22,7 @@
             <div
                 class="rounded-2xl border border-white/50 bg-white/40 backdrop-blur-xl px-5 md:px-6 py-3 flex items-center justify-center shadow-xl shadow-slate-200/40 transition-all duration-300 hover:bg-white/50 hover:border-white/80">
                 <a href="#home" class="inline-flex items-center">
-                    <img src="{{ asset('navbar.png') }}" alt="VarsaWeb" class="h-24 md:h-28 w-auto object-contain">
+                    <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873" class="h-24 md:h-28 w-auto object-contain">
                 </a>
             </div>
         </div>
@@ -38,7 +38,7 @@
                             class="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-slate-900 leading-[1.1] mb-6">
                             {!! nl2br(e($homeSetting->hero_title ?? 'Weaving the Web of Tomorrow')) !!}
                         </h1>
-                        <p class="text-lg md:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        <p class="text-lg md:text-xl text-slate-700 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                             {{ $homeSetting->hero_description ?? '' }}
                         </p>
                     </div>
@@ -47,9 +47,20 @@
                         <div
                             class="absolute inset-0 bg-linear-to-tr from-brand-100 to-accent-100 rounded-full blur-3xl opacity-40 -z-10 w-3/4 h-3/4 m-auto">
                         </div>
-                        <img src="{{ $homeSetting->hero_image_url ? (str_starts_with($homeSetting->hero_image_url, 'http') ? $homeSetting->hero_image_url : asset('storage/' . $homeSetting->hero_image_url)) : 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }}"
-                            alt="Abstract Digital Web Concept"
-                            class="w-full max-w-md lg:max-w-lg rounded-3xl shadow-xl shadow-slate-300/40 animate-float object-cover aspect-square border-4 border-white/80">
+                        @if($homeSetting->hero_image_url)
+                            <img src="{{ str_starts_with($homeSetting->hero_image_url, 'http') ? $homeSetting->hero_image_url : asset('storage/' . $homeSetting->hero_image_url) }}"
+                                alt="Abstract Digital Web Concept"
+                                width="800" height="800"
+                                fetchpriority="high"
+                                class="w-full max-w-md lg:max-w-lg rounded-3xl shadow-xl shadow-slate-300/40 animate-float object-cover aspect-square border-4 border-white/80">
+                        @else
+                            <div class="w-full max-w-md lg:max-w-lg rounded-3xl shadow-xl shadow-slate-300/40 animate-float aspect-square border-4 border-white/80 bg-gradient-to-tr from-brand-100 via-accent-100 to-blue-100 flex items-center justify-center"
+                                style="min-height:320px">
+                                <svg class="w-28 h-28 text-brand-300 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                                </svg>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -67,8 +78,8 @@
                                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3 font-display">About Us</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Discover our mission, our story, and the
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3 font-display">About Us</h2>
+                        <p class="text-slate-700 text-sm leading-relaxed">Discover our mission, our story, and the
                             brilliant team behind the code.</p>
                     </a>
 
@@ -82,8 +93,8 @@
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3 font-display">Our Services</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Explore our comprehensive digital solutions
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3 font-display">Our Services</h2>
+                        <p class="text-slate-700 text-sm leading-relaxed">Explore our comprehensive digital solutions
                             and technological capabilities.</p>
                     </a>
 
@@ -97,8 +108,8 @@
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-900 mb-3 font-display">Get in Touch</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Ready to start a project? Reach out to us and
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3 font-display">Get in Touch</h2>
+                        <p class="text-slate-700 text-sm leading-relaxed">Ready to start a project? Reach out to us and
                             let's build something amazing.</p>
                     </a>
                 </div>

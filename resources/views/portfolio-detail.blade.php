@@ -23,7 +23,7 @@
                 </nav>
 
                 <a href="{{ route('home') }}" class="inline-flex items-center">
-                    <img src="{{ asset('navbar.png') }}" alt="VarsaWeb"
+                    <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873"
                         class="h-12 md:h-14 w-auto max-w-72 object-contain">
                 </a>
 
@@ -67,6 +67,7 @@
         @if($portfolio->image)
             <div class="rounded-3xl overflow-hidden border border-white/50 shadow-xl shadow-slate-200/40 mb-16">
                 <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}"
+                    width="896" height="384"
                     class="w-full h-64 md:h-96 object-cover">
             </div>
         @else

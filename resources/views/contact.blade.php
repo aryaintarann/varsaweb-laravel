@@ -23,7 +23,7 @@
                 </nav>
 
                 <a href="{{ route('home') }}" class="inline-flex items-center">
-                    <img src="{{ asset('navbar.png') }}" alt="VarsaWeb"
+                    <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873"
                         class="h-12 md:h-14 w-auto max-w-72 object-contain">
                 </a>
 

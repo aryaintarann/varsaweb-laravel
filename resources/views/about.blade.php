@@ -8,9 +8,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"></noscript>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -30,7 +30,7 @@
                 </nav>
 
                 <a href="{{ route('home') }}" class="inline-flex items-center">
-                    <img src="{{ asset('navbar.png') }}" alt="VarsaWeb"
+                    <img src="{{ asset('navbar.webp') }}" alt="VarsaWeb" width="1600" height="873"
                         class="h-12 md:h-14 w-auto max-w-72 object-contain">
                 </a>
 
@@ -71,7 +71,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-10">
                     <div
                         class="rounded-2xl overflow-hidden border border-white/60 bg-white/45 backdrop-blur-md transition-all duration-300 hover:bg-white/55 hover:border-white hover:shadow-lg hover:shadow-slate-200/55">
-                        <img src="{{ $aboutSetting->image_path ? (str_starts_with($aboutSetting->image_path, 'uploads/') ? asset('storage/' . $aboutSetting->image_path) : asset($aboutSetting->image_path)) : asset('logo.png') }}"
+                        <img src="{{ $aboutSetting->image_path ? (str_starts_with($aboutSetting->image_path, 'uploads/') ? asset('storage/' . $aboutSetting->image_path) : asset($aboutSetting->image_path)) : asset('logo.webp') }}"
                             alt="Logo VarsaWeb" class="w-full min-h-80 md:min-h-130 object-cover">
                     </div>
 
@@ -93,7 +93,7 @@
         <section class="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
             <div class="text-center">
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900">VarsaWeb Team</h2>
-                <p class="mt-4 text-slate-600 max-w-3xl mx-auto">Tim kami terdiri dari talenta multidisiplin yang
+                <p class="mt-4 text-slate-700 max-w-3xl mx-auto">Tim kami terdiri dari talenta multidisiplin yang
                     bekerja kolaboratif untuk menghasilkan website dengan kualitas terbaik.</p>
             </div>
 
@@ -108,6 +108,7 @@
                                 class="relative w-40 h-44 rounded-3xl border border-dashed border-white/80 bg-white/45 backdrop-blur-md flex items-center justify-center text-sm font-medium text-slate-500 transition-all duration-500 ease-out group-hover:{{ $index % 2 === 0 ? '-translate-x-1' : 'translate-x-1' }} group-hover:-translate-y-1 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-slate-300/60">
                                 @if($member->photo)
                                     <img src="{{ asset('storage/' . $member->photo) }}" alt="{{ $member->name }}"
+                                        width="160" height="176"
                                         class="w-full h-full object-cover rounded-3xl">
                                 @else
                                     Foto PNG

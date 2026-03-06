@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HomeSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Mews\Purifier\Facades\Purifier;
 
 class HomeSettingController extends Controller
 {
@@ -39,7 +40,7 @@ class HomeSettingController extends Controller
         }
 
         $setting->hero_title = $validated['hero_title'];
-        $setting->hero_description = $validated['hero_description'];
+        $setting->hero_description = Purifier::clean($validated['hero_description']);
         $setting->save();
 
         return back()->with('success', 'Home page berhasil diperbarui.');

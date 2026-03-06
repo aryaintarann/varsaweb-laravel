@@ -35,7 +35,7 @@ class CmsSeeder extends Seeder
         AboutSetting::firstOrCreate(['id' => 1], [
             'title' => 'About Us',
             'description' => '<p>Selamat datang di VarsaWeb. Sejak berdiri, kami berkomitmen membantu bisnis memiliki website modern yang cepat, mudah diakses, dan siap digunakan sebagai fondasi pertumbuhan digital.</p><p>Di VarsaWeb, kami menggabungkan strategi, desain, dan teknologi dalam satu proses kerja yang terarah. Didukung tim berpengalaman, kami memastikan setiap proyek dikerjakan dengan standar kualitas profesional.</p>',
-            'image_path' => 'logo.png',
+            'image_path' => 'logo.webp',
         ]);
 
         $members = [

@@ -20,41 +20,72 @@ use App\Models\WorkProcess;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $homeSetting = HomeSetting::first();
-    $footerSetting = FooterSetting::first();
+    $homeSetting = HomeSetting::firstOrCreate(['id' => 1], [
+        'hero_title'       => 'Weaving the Web of Tomorrow',
+        'hero_description' => '',
+    ]);
+    $footerSetting = FooterSetting::firstOrCreate(['id' => 1], [
+        'tagline'        => '',
+        'copyright_text' => '© ' . date('Y') . ' VarsaWeb',
+    ]);
     return view('company-profile', compact('homeSetting', 'footerSetting'));
 })->name('home');
 
 Route::get('/about', function () {
-    $aboutSetting = AboutSetting::first();
+    $aboutSetting = AboutSetting::firstOrCreate(['id' => 1], [
+        'title'       => 'About Us',
+        'description' => '',
+    ]);
     $teamMembers = TeamMember::orderBy('sort_order')->get();
-    $footerSetting = FooterSetting::first();
+    $footerSetting = FooterSetting::firstOrCreate(['id' => 1], [
+        'tagline'        => '',
+        'copyright_text' => '© ' . date('Y') . ' VarsaWeb',
+    ]);
     return view('about', compact('aboutSetting', 'teamMembers', 'footerSetting'));
 })->name('about');
 
 Route::get('/services', function () {
     $services = Service::orderBy('sort_order')->get();
-    $pageSetting = ServicePageSetting::first();
+    $pageSetting = ServicePageSetting::firstOrCreate(['id' => 1], [
+        'badge_text'  => '',
+        'title'       => 'Our Services',
+        'description' => '',
+    ]);
     $workProcesses = WorkProcess::orderBy('sort_order')->get();
     $portfolios = Portfolio::orderBy('sort_order')->get();
-    $footerSetting = FooterSetting::first();
+    $footerSetting = FooterSetting::firstOrCreate(['id' => 1], [
+        'tagline'        => '',
+        'copyright_text' => '© ' . date('Y') . ' VarsaWeb',
+    ]);
     return view('services', compact('services', 'pageSetting', 'workProcesses', 'portfolios', 'footerSetting'));
 })->name('services');
 
 Route::get('/portfolio/{portfolio}', function (Portfolio $portfolio) {
-    $footerSetting = FooterSetting::first();
+    $footerSetting = FooterSetting::firstOrCreate(['id' => 1], [
+        'tagline'        => '',
+        'copyright_text' => '© ' . date('Y') . ' VarsaWeb',
+    ]);
     return view('portfolio-detail', compact('portfolio', 'footerSetting'));
 })->name('portfolio.show');
 
 Route::get('/contact', function () {
-    $contactSetting = ContactSetting::first();
-    $footerSetting = FooterSetting::first();
+    $contactSetting = ContactSetting::firstOrCreate(['id' => 1], [
+        'badge_text'  => '',
+        'title'       => 'Get in Touch',
+        'description' => '',
+        'email'       => '',
+        'phone'       => '',
+    ]);
+    $footerSetting = FooterSetting::firstOrCreate(['id' => 1], [
+        'tagline'        => '',
+        'copyright_text' => '© ' . date('Y') . ' VarsaWeb',
+    ]);
     return view('contact', compact('contactSetting', 'footerSetting'));
 })->name('contact');
 
 Route::prefix('admin')->group(function () {
     Route::get('login', [AdminAuthController::class, 'showLogin'])->name('admin.login');
-    Route::post('login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
+    Route::post('login', [AdminAuthController::class, 'login'])->name('admin.login.submit')->middleware('throttle:5,1');
 });
 
 Route::prefix('admin')->middleware(AdminAuthenticate::class)->group(function () {
@@ -85,8 +116,8 @@ Route::prefix('admin')->middleware(AdminAuthenticate::class)->group(function () 
     Route::delete('services/process/{process}', [ServiceController::class, 'destroyProcess'])->name('admin.services.process.destroy');
 
     Route::post('services/portfolio', [ServiceController::class, 'storePortfolio'])->name('admin.services.portfolio.store');
-    Route::put('services/portfolio/{portfolio}', [ServiceController::class, 'updatePortfolio'])->name('admin.services.portfolio.update');
-    Route::delete('services/portfolio/{portfolio}', [ServiceController::class, 'destroyPortfolio'])->name('admin.services.portfolio.destroy');
+    Route::put('services/portfolio/{portfolio:id}', [ServiceController::class, 'updatePortfolio'])->name('admin.services.portfolio.update');
+    Route::delete('services/portfolio/{portfolio:id}', [ServiceController::class, 'destroyPortfolio'])->name('admin.services.portfolio.destroy');
 
     Route::get('contact', [ContactSettingController::class, 'edit'])->name('admin.contact.edit');
     Route::put('contact', [ContactSettingController::class, 'update'])->name('admin.contact.update');
