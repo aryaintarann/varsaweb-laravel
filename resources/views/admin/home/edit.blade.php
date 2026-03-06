@@ -10,12 +10,6 @@
 
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-6">
             <div>
-                <label for="badge_text" class="block text-sm font-medium text-slate-300 mb-2">Badge Text</label>
-                <input type="text" id="badge_text" name="badge_text" value="{{ old('badge_text', $setting->badge_text) }}"
-                    class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all">
-            </div>
-
-            <div>
                 <label for="hero_title" class="block text-sm font-medium text-slate-300 mb-2">Hero Title</label>
                 <input type="text" id="hero_title" name="hero_title" value="{{ old('hero_title', $setting->hero_title) }}"
                     class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all">

@@ -45,14 +45,14 @@ class ContactSettingController extends Controller
     {
         $validated = $request->validate([
             'platform' => ['required', 'string', 'max:50'],
-            'url' => ['required', 'url', 'max:255'],
+            'url'      => ['required', 'url', 'max:255', 'regex:/^https?:\/\//i'],
         ]);
 
         $maxOrder = \App\Models\SocialLink::max('sort_order') ?? 0;
 
         \App\Models\SocialLink::create([
-            'platform' => $validated['platform'],
-            'url' => $validated['url'],
+            'platform'   => $validated['platform'],
+            'url'        => $validated['url'],
             'sort_order' => $maxOrder + 1,
         ]);
 
@@ -63,7 +63,7 @@ class ContactSettingController extends Controller
     {
         $validated = $request->validate([
             'platform' => ['required', 'string', 'max:50'],
-            'url' => ['required', 'url', 'max:255'],
+            'url'      => ['required', 'url', 'max:255', 'regex:/^https?:\/\//i'],
         ]);
 
         $socialLink->update($validated);

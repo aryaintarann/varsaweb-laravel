@@ -9,6 +9,7 @@ use App\Models\ServicePageSetting;
 use App\Models\WorkProcess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Mews\Purifier\Facades\Purifier;
 
 class ServiceController extends Controller
 {
@@ -35,7 +36,11 @@ class ServiceController extends Controller
             'sort_order' => ['nullable', 'integer'],
         ]);
 
-        Service::create($validated);
+        Service::create([
+            'title'       => $validated['title'],
+            'description' => Purifier::clean($validated['description']),
+            'sort_order'  => $validated['sort_order'] ?? (Service::max('sort_order') + 1),
+        ]);
 
         return redirect()->route('admin.services.index')->with('success', 'Service berhasil ditambahkan.');
     }
@@ -53,7 +58,11 @@ class ServiceController extends Controller
             'sort_order' => ['nullable', 'integer'],
         ]);
 
-        $service->update($validated);
+        $service->update([
+            'title'       => $validated['title'],
+            'description' => Purifier::clean($validated['description']),
+            'sort_order'  => $validated['sort_order'] ?? $service->sort_order,
+        ]);
 
         return redirect()->route('admin.services.index')->with('success', 'Service berhasil diperbarui.');
     }
@@ -82,7 +91,19 @@ class ServiceController extends Controller
         ]);
 
         $setting = ServicePageSetting::firstOrCreate(['id' => 1]);
-        $setting->update($validated);
+        $setting->update([
+            'badge_text'    => $validated['badge_text'],
+            'title'         => $validated['title'],
+            'description'   => Purifier::clean($validated['description']),
+            'tag_1'         => $validated['tag_1'] ?? null,
+            'tag_2'         => $validated['tag_2'] ?? null,
+            'tag_3'         => $validated['tag_3'] ?? null,
+            'stat_1_label'  => $validated['stat_1_label'] ?? null,
+            'stat_1_value'  => $validated['stat_1_value'] ?? null,
+            'stat_2_label'  => $validated['stat_2_label'] ?? null,
+            'stat_2_value'  => $validated['stat_2_value'] ?? null,
+            'approach_text' => isset($validated['approach_text']) ? Purifier::clean($validated['approach_text']) : null,
+        ]);
 
         return back()->with('success', 'Service page header berhasil diperbarui.');
     }
@@ -95,7 +116,11 @@ class ServiceController extends Controller
             'sort_order' => ['nullable', 'integer'],
         ]);
 
-        WorkProcess::create($validated);
+        WorkProcess::create([
+            'step_label' => $validated['step_label'],
+            'title'      => $validated['title'],
+            'sort_order' => $validated['sort_order'] ?? (WorkProcess::max('sort_order') + 1),
+        ]);
 
         return back()->with('success', 'Step berhasil ditambahkan.');
     }
@@ -108,7 +133,11 @@ class ServiceController extends Controller
             'sort_order' => ['nullable', 'integer'],
         ]);
 
-        $process->update($validated);
+        $process->update([
+            'step_label' => $validated['step_label'],
+            'title'      => $validated['title'],
+            'sort_order' => $validated['sort_order'] ?? $process->sort_order,
+        ]);
 
         return back()->with('success', 'Step berhasil diperbarui.');
     }
@@ -130,9 +159,10 @@ class ServiceController extends Controller
         ]);
 
         $data = [
-            'title' => $validated['title'],
+            'title'             => $validated['title'],
             'short_description' => $validated['short_description'],
-            'description' => $validated['description'] ?? '',
+            'description'       => isset($validated['description']) ? Purifier::clean($validated['description']) : '',
+            'sort_order'        => Portfolio::max('sort_order') + 1,
         ];
 
         if ($request->hasFile('image')) {
@@ -144,20 +174,18 @@ class ServiceController extends Controller
         return back()->with('success', 'Portfolio berhasil ditambahkan.');
     }
 
-    public function updatePortfolio(Request $request, $id)
+    public function updatePortfolio(Request $request, Portfolio $portfolio)
     {
-        $portfolio = Portfolio::findOrFail($id);
-
         $validated = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title'             => ['required', 'string', 'max:255'],
             'short_description' => ['required', 'string', 'max:500'],
-            'description' => ['nullable', 'string'],
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'description'       => ['nullable', 'string'],
+            'image'             => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
 
-        $portfolio->title = $validated['title'];
+        $portfolio->title             = $validated['title'];
         $portfolio->short_description = $validated['short_description'];
-        $portfolio->description = $validated['description'] ?? '';
+        $portfolio->description       = isset($validated['description']) ? Purifier::clean($validated['description']) : '';
 
         if ($request->hasFile('image')) {
             if ($portfolio->image && Storage::disk('public')->exists($portfolio->image)) {
@@ -171,10 +199,8 @@ class ServiceController extends Controller
         return back()->with('success', 'Portfolio berhasil diperbarui.');
     }
 
-    public function destroyPortfolio($id)
+    public function destroyPortfolio(Portfolio $portfolio)
     {
-        $portfolio = Portfolio::findOrFail($id);
-
         if ($portfolio->image && Storage::disk('public')->exists($portfolio->image)) {
             Storage::disk('public')->delete($portfolio->image);
         }

@@ -7,6 +7,7 @@ use App\Models\AboutSetting;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Mews\Purifier\Facades\Purifier;
 
 class AboutSettingController extends Controller
 {
@@ -41,7 +42,7 @@ class AboutSettingController extends Controller
         }
 
         $setting->title = $validated['title'];
-        $setting->description = $validated['description'];
+        $setting->description = Purifier::clean($validated['description']);
         $setting->save();
 
         return back()->with('success', 'About page berhasil diperbarui.');

@@ -40,8 +40,8 @@ class FooterSettingController extends Controller
     public function storeSocialLink(Request $request)
     {
         $validated = $request->validate([
-            'platform' => 'required|string|max:50',
-            'url' => 'required|url|max:500',
+            'platform'   => ['required', 'string', 'max:50'],
+            'url'        => ['required', 'url', 'max:500', 'regex:/^https?:\/\//i'],
         ]);
 
         $lastOrder = \App\Models\SocialLink::max('sort_order') ?? 0;
@@ -55,8 +55,8 @@ class FooterSettingController extends Controller
     public function updateSocialLink(Request $request, \App\Models\SocialLink $socialLink)
     {
         $validated = $request->validate([
-            'platform' => 'required|string|max:50',
-            'url' => 'required|url|max:500',
+            'platform'   => ['required', 'string', 'max:50'],
+            'url'        => ['required', 'url', 'max:500', 'regex:/^https?:\/\//i'],
         ]);
 
         $socialLink->update($validated);
