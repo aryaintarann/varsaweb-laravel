@@ -3,9 +3,15 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\PublicController;
+
+Route::get('/', [PublicController::class, 'index'])->name('home');
+Route::get('/about', [PublicController::class, 'about'])->name('about');
+Route::get('/services', [PublicController::class, 'services'])->name('services');
+Route::get('/portfolios', [PublicController::class, 'portfolios'])->name('portfolios');
+Route::get('/portfolio/{portfolio:slug}', [PublicController::class, 'portfolioDetail'])->name('portfolio.detail');
+Route::get('/contact', [PublicController::class, 'contact'])->name('contact');
+Route::post('/contact', [PublicController::class, 'submitContact'])->name('contact.submit');
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ServiceController;

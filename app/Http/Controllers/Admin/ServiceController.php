@@ -24,14 +24,10 @@ class ServiceController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'icon' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'icon' => 'nullable|string|max:100',
             'short_description' => 'required|string',
             'full_description' => 'nullable|string',
         ]);
-
-        if ($request->hasFile('icon')) {
-            $validatedData['icon'] = $request->file('icon')->store('services', 'public');
-        }
 
         Service::create($validatedData);
 
@@ -47,17 +43,10 @@ class ServiceController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'icon' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:2048',
+            'icon' => 'nullable|string|max:100',
             'short_description' => 'required|string',
             'full_description' => 'nullable|string',
         ]);
-
-        if ($request->hasFile('icon')) {
-            if ($service->icon) {
-                Storage::disk('public')->delete($service->icon);
-            }
-            $validatedData['icon'] = $request->file('icon')->store('services', 'public');
-        }
 
         $service->update($validatedData);
 
@@ -66,9 +55,6 @@ class ServiceController extends Controller
 
     public function destroy(Service $service)
     {
-        if ($service->icon) {
-            Storage::disk('public')->delete($service->icon);
-        }
         $service->delete();
 
         return redirect()->route('admin.services.index')->with('success', 'Service deleted successfully.');

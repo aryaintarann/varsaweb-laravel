@@ -20,7 +20,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.services.update', $service) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    <form action="{{ route('admin.services.update', $service) }}" method="POST" class="space-y-6">
                         @csrf
                         @method('PUT')
                         
@@ -30,15 +30,7 @@
                         </div>
                         
                         <div>
-                            <label for="icon" class="block text-sm font-medium text-gray-700">Service Icon / Image</label>
-                            @if($service->icon)
-                                <div class="mt-2 mb-4">
-                                    <p class="text-sm text-gray-500 mb-2">Current Icon:</p>
-                                    <img src="{{ Storage::url($service->icon) }}" class="h-24 w-24 object-cover rounded shadow border" alt="{{ $service->title }}">
-                                </div>
-                            @endif
-                            <input type="file" name="icon" id="icon" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" accept="image/png, image/jpeg, image/jpg, image/webp, image/svg+xml">
-                            <p class="mt-1 flex text-xs text-gray-500">Upload a new icon to replace the current one. Max size 2MB. Formats: jpg, png, webp, svg</p>
+                            <x-icon-picker name="icon" :value="old('icon', $service->icon)" />
                         </div>
                         
                         <div>
