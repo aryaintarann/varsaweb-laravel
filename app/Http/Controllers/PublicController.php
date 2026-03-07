@@ -22,8 +22,9 @@ class PublicController extends Controller
 
     public function about()
     {
+        $teamMembers = \App\Models\TeamMember::orderBy('sort_order')->get();
         $settings = SiteSetting::all()->pluck('value', 'key')->toArray();
-        return view('public.about', compact('settings'));
+        return view('public.about', compact('settings', 'teamMembers'));
     }
 
     public function services()

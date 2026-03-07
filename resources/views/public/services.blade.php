@@ -10,8 +10,8 @@
             <div class="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-300/15 rounded-full blur-3xl"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="section-badge">What We Do</span>
-            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
+            <div class="text-indigo-600 font-bold tracking-widest uppercase text-sm mb-4">What We Do</div>
+            <h1 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
                 Services That
                 <span class="text-indigo-600">Drive Growth</span>
             </h1>

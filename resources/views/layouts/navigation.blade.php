@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('admin.settings.index')" :active="request()->routeIs('admin.settings.*')">
                         {{ __('Settings') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.about.index')" :active="request()->routeIs('admin.about.*') || request()->routeIs('admin.team_members.*')">
+                        {{ __('About Page') }}
+                    </x-nav-link>
                 </div>
             </div>
 

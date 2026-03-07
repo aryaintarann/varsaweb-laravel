@@ -19,6 +19,9 @@ use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\SiteSettingController;
 
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\TeamMemberController;
+
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
@@ -33,6 +36,10 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
         
         Route::get('settings', [SiteSettingController::class, 'index'])->name('settings.index');
         Route::post('settings', [SiteSettingController::class, 'store'])->name('settings.store');
+        
+        Route::get('about', [AboutController::class, 'index'])->name('about.index');
+        Route::post('about', [AboutController::class, 'store'])->name('about.store');
+        Route::resource('team_members', TeamMemberController::class)->except(['index', 'show']);
     });
 });
 
