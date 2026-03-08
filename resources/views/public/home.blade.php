@@ -17,7 +17,7 @@
                 {{-- Content --}}
                 <div class="space-y-8">
 
-                    <h1 class="fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
+                    <h1 class="fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-[1.1] tracking-tight">
                         We Build
                         <span class="block mt-2 text-indigo-600">
                             Digital Experiences
@@ -25,7 +25,7 @@
                         That Matter
                     </h1>
 
-                    <p class="fade-in-up delay-200 text-lg text-slate-600 leading-relaxed max-w-lg">
+                    <p class="fade-in-up delay-200 text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-lg">
                         From concept to deployment, we craft high-performance websites and applications that drive growth and engage users at every touchpoint.
                     </p>
 
@@ -42,18 +42,18 @@
                     {{-- Stats Row --}}
                     <div class="fade-in-up delay-400 flex items-center gap-8 pt-4">
                         <div>
-                            <div class="text-3xl font-extrabold text-slate-900">50+</div>
-                            <div class="text-sm text-slate-500">Projects Done</div>
+                            <div class="text-3xl font-extrabold text-slate-900 dark:text-white">{{ $projectCount }}</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Projects Done</div>
                         </div>
-                        <div class="w-px h-12 bg-slate-200"></div>
+                        <div class="w-px h-12 bg-slate-200 dark:bg-slate-700"></div>
                         <div>
-                            <div class="text-3xl font-extrabold text-slate-900">30+</div>
-                            <div class="text-sm text-slate-500">Happy Clients</div>
+                            <div class="text-3xl font-extrabold text-slate-900 dark:text-white">{{ $clientCount }}</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Happy Clients</div>
                         </div>
-                        <div class="w-px h-12 bg-slate-200"></div>
+                        <div class="w-px h-12 bg-slate-200 dark:bg-slate-700"></div>
                         <div>
-                            <div class="text-3xl font-extrabold text-slate-900">5+</div>
-                            <div class="text-sm text-slate-500">Years of Exp.</div>
+                            <div class="text-3xl font-extrabold text-slate-900 dark:text-white">1+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Years of Exp.</div>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
 
     </section>
 
-    <section class="py-24 lg:py-32 bg-slate-50">
+    <section class="py-24 lg:py-32 bg-slate-50 dark:bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 {{-- Image --}}
@@ -103,45 +103,45 @@
                         <div class="w-10 h-1 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600"></div>
                         <span class="text-sm font-bold uppercase tracking-widest text-indigo-600">Who We Are</span>
                     </div>
-                    <h2 class="section-title">We Transform Ideas Into <span class="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">Digital Reality</span></h2>
-                    <p class="text-lg text-slate-600 leading-relaxed">
+                    <h2 class="section-title">We Transform Ideas Into <span class="text-indigo-600">Digital Reality</span></h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                         At {{ $settings['site_name'] ?? 'VarsaWeb' }}, we combine creative vision with technical excellence. Our team of seasoned professionals is passionate about building digital products that not only look stunning but also deliver measurable results.
                     </p>
                     <div class="grid grid-cols-2 gap-6 pt-4">
                         <div class="flex items-start gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             </div>
                             <div>
-                                <div class="font-semibold text-slate-900">Expert Team</div>
-                                <div class="text-sm text-slate-500">Skilled professionals</div>
+                                <div class="font-semibold text-slate-900 dark:text-white">Expert Team</div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400">Skilled professionals</div>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             </div>
                             <div>
-                                <div class="font-semibold text-slate-900">On-Time Delivery</div>
-                                <div class="text-sm text-slate-500">Reliable timelines</div>
+                                <div class="font-semibold text-slate-900 dark:text-white">On-Time Delivery</div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400">Reliable timelines</div>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                             </div>
                             <div>
-                                <div class="font-semibold text-slate-900">Innovation First</div>
-                                <div class="text-sm text-slate-500">Latest technologies</div>
+                                <div class="font-semibold text-slate-900 dark:text-white">Innovation First</div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400">Latest technologies</div>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center flex-shrink-0">
                                 <svg class="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                             </div>
                             <div>
-                                <div class="font-semibold text-slate-900">Client Focus</div>
-                                <div class="text-sm text-slate-500">Your success is ours</div>
+                                <div class="font-semibold text-slate-900 dark:text-white">Client Focus</div>
+                                <div class="text-sm text-slate-500 dark:text-slate-400">Your success is ours</div>
                             </div>
                         </div>
                     </div>
@@ -156,8 +156,8 @@
         </div>
     </section>
 
-    <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-60"></div>
+    <section class="py-24 lg:py-32 bg-white dark:bg-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-50 dark:bg-indigo-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 opacity-60"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <div class="flex items-center justify-center gap-3 mb-2">
@@ -182,19 +182,19 @@
                 @endphp
                 @forelse($services as $index => $service)
                     @php $color = $colors[$index % count($colors)]; @endphp
-                    <div class="card-hover group bg-white rounded-2xl p-8 border border-slate-100 hover:border-indigo-100 text-center">
+                    <div class="card-hover group bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-800 text-center">
                         <div class="w-14 h-14 rounded-2xl {{ $color['bg'] }} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto">
                             <x-service-icon :name="$service->icon ?? 'bolt'" class="h-7 w-7 {{ $color['text'] }}" />
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300">{{ $service->title }}</h3>
-                        <p class="text-slate-500 leading-relaxed line-clamp-3">{{ $service->short_description }}</p>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-indigo-600 transition-colors duration-300">{{ $service->title }}</h3>
+                        <p class="text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">{{ $service->short_description }}</p>
                     </div>
                 @empty
                     <div class="col-span-full text-center py-16">
                         <div class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                         </div>
-                        <p class="text-slate-500">Services coming soon. Stay tuned!</p>
+                        <p class="text-slate-500 dark:text-slate-400">Services coming soon. Stay tuned!</p>
                     </div>
                 @endforelse
             </div>
@@ -210,7 +210,7 @@
         </div>
     </section>
 
-    <section class="py-24 lg:py-32 bg-slate-50">
+    <section class="py-24 lg:py-32 bg-slate-50 dark:bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <div class="flex items-center justify-center gap-3 mb-2">
@@ -224,12 +224,12 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($portfolios as $portfolio)
-                    <div class="card-hover group bg-white rounded-2xl overflow-hidden border border-slate-100">
+                    <div class="card-hover group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700">
                         <div class="relative overflow-hidden aspect-[4/3]">
                             @if($portfolio->image)
                                 <img src="{{ Storage::url($portfolio->image) }}" alt="{{ $portfolio->title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             @else
-                                <div class="w-full h-full bg-slate-100 flex items-center justify-center">
+                                <div class="w-full h-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center">
                                     <svg class="w-12 h-12 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                                 </div>
                             @endif
@@ -241,8 +241,8 @@
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">{{ $portfolio->title }}</h3>
-                            <p class="text-sm text-slate-500 line-clamp-2 mb-4">{{ $portfolio->description }}</p>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 transition-colors">{{ $portfolio->title }}</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-4">{{ $portfolio->description }}</p>
                             <div class="flex items-center justify-between text-xs text-slate-400">
                                 <span>{{ $portfolio->client_name ?? 'Confidential' }}</span>
                                 <span>{{ $portfolio->completion_date ? $portfolio->completion_date->format('M Y') : 'Ongoing' }}</span>
@@ -251,7 +251,7 @@
                     </div>
                 @empty
                     <div class="col-span-full text-center py-16">
-                        <p class="text-slate-500">Portfolio coming soon!</p>
+                        <p class="text-slate-500 dark:text-slate-400">Portfolio coming soon!</p>
                     </div>
                 @endforelse
             </div>
@@ -268,17 +268,17 @@
     </section>
 
     <section class="relative overflow-hidden">
-        <div class="bg-indigo-50/50 py-24 lg:py-32 relative border-t border-indigo-100/50">
+        <div class="bg-indigo-50/50 dark:bg-indigo-950/30 py-24 lg:py-32 relative border-t border-indigo-100/50 dark:border-indigo-900/30">
             <div class="absolute inset-0 opacity-40">
-                <div class="absolute top-10 left-1/4 w-72 h-72 bg-indigo-200 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-violet-200 rounded-full blur-3xl"></div>
+                <div class="absolute top-10 left-1/4 w-72 h-72 bg-indigo-200 dark:bg-indigo-800 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-violet-200 dark:bg-violet-800 rounded-full blur-3xl"></div>
             </div>
             <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                     Ready to bring your
                     <span class="block mt-2">vision to life?</span>
                 </h2>
-                <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                <p class="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
                     Let's collaborate to create something extraordinary. From initial concept to final
                     deployment, our team is here to make it happen.
                 </p>

@@ -12,8 +12,17 @@
     <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800&display=swap" rel="stylesheet" />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Dark mode: apply theme before paint to prevent flash -->
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased">
+<body class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased">
 
     <header x-data="{ open: false, scrolled: false }" 
             x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
@@ -22,12 +31,13 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="rounded-2xl transition-all duration-500 px-4 sm:px-6"
                  :class="scrolled 
-                    ? 'bg-white/80 backdrop-blur-2xl shadow-xl shadow-slate-900/10 border border-white/60 ring-1 ring-slate-900/5' 
-                    : 'bg-white/10 backdrop-blur-md border border-white/15'">
+                    ? 'bg-white/80 dark:bg-slate-900/90 backdrop-blur-2xl shadow-xl shadow-slate-900/10 dark:shadow-black/30 border border-white/60 dark:border-slate-700/50 ring-1 ring-slate-900/5 dark:ring-slate-700/30' 
+                    : 'bg-white/10 dark:bg-slate-900/20 backdrop-blur-md border border-white/15 dark:border-white/10'">
                 <div class="flex items-center justify-between h-16">
                     <!-- Logo -->
                     <a href="{{ route('home') }}" class="flex items-center group">
-                        <img src="{{ asset('varsaweb-navbar.webp') }}" alt="{{ $settings['site_name'] ?? 'VarsaWeb' }}" class="h-10 w-auto">
+                        <img src="{{ asset('varsaweb-navbar.webp') }}" alt="{{ $settings['site_name'] ?? 'VarsaWeb' }}" class="h-10 w-auto block dark:hidden">
+                        <img src="{{ asset('varsaweb-navbar-white.webp') }}" alt="{{ $settings['site_name'] ?? 'VarsaWeb' }}" class="h-10 w-auto hidden dark:block">
                     </a>
 
                     <!-- Desktop Nav -->
@@ -35,37 +45,72 @@
                         <a href="{{ route('home') }}" 
                            class="nav-link px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 {{ request()->routeIs('home') ? 'active' : '' }}"
                            :class="scrolled 
-                              ? '{{ request()->routeIs('home') ? "text-indigo-600 bg-indigo-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100" }}' 
-                              : '{{ request()->routeIs('home') ? "text-indigo-600 bg-indigo-50/70" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/50" }}'">Home</a>
+                              ? '{{ request()->routeIs('home') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700/60" }}' 
+                              : '{{ request()->routeIs('home') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50/70 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/50 dark:hover:bg-slate-700/40" }}'">Home</a>
                         <a href="{{ route('about') }}" 
                            class="nav-link px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 {{ request()->routeIs('about') ? 'active' : '' }}"
                            :class="scrolled 
-                              ? '{{ request()->routeIs('about') ? "text-indigo-600 bg-indigo-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100" }}' 
-                              : '{{ request()->routeIs('about') ? "text-indigo-600 bg-indigo-50/70" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/50" }}'">About</a>
+                              ? '{{ request()->routeIs('about') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700/60" }}' 
+                              : '{{ request()->routeIs('about') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50/70 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/50 dark:hover:bg-slate-700/40" }}'">About</a>
                         <a href="{{ route('services') }}" 
                            class="nav-link px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 {{ request()->routeIs('services') ? 'active' : '' }}"
                            :class="scrolled 
-                              ? '{{ request()->routeIs('services') ? "text-indigo-600 bg-indigo-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100" }}' 
-                              : '{{ request()->routeIs('services') ? "text-indigo-600 bg-indigo-50/70" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/50" }}'">Services</a>
+                              ? '{{ request()->routeIs('services') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700/60" }}' 
+                              : '{{ request()->routeIs('services') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50/70 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/50 dark:hover:bg-slate-700/40" }}'">Services</a>
                         <a href="{{ route('portfolios') }}" 
                            class="nav-link px-3.5 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 {{ request()->routeIs('portfolios') ? 'active' : '' }}"
                            :class="scrolled 
-                              ? '{{ request()->routeIs('portfolios') ? "text-indigo-600 bg-indigo-50" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100" }}' 
-                              : '{{ request()->routeIs('portfolios') ? "text-indigo-600 bg-indigo-50/70" : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/50" }}'">Portfolio</a>
+                              ? '{{ request()->routeIs('portfolios') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700/60" }}' 
+                              : '{{ request()->routeIs('portfolios') ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50/70 dark:bg-indigo-900/40" : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/50 dark:hover:bg-slate-700/40" }}'">Portfolio</a>
+
                         <a href="{{ route('contact') }}" class="btn-primary ml-3 !px-5 !py-2 !text-xs !rounded-lg">
                             Get in Touch
                             <svg class="w-3.5 h-3.5 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
+
+                        <div class="w-px h-5 bg-slate-300 dark:bg-slate-600 mx-20"></div>
+
+                        <!-- Theme Toggle -->
+                        <button @click="$store.theme.toggle()"
+                                class="relative inline-flex items-center w-12 h-6 rounded-full p-0.5 bg-slate-200 dark:bg-indigo-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 dark:focus:ring-offset-slate-900"
+                                aria-label="Toggle dark mode"
+                                title="Toggle dark mode">
+                            <span class="flex items-center justify-center w-5 h-5 bg-white rounded-full shadow transform transition-transform duration-300 translate-x-0 dark:translate-x-6">
+                                <!-- Sun: visible in light mode -->
+                                <svg class="w-3 h-3 text-amber-500 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                                <!-- Moon: visible in dark mode -->
+                                <svg class="w-3 h-3 text-indigo-600 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                </svg>
+                            </span>
+                        </button>
                     </nav>
 
                     <!-- Mobile Toggle -->
-                    <button @click="open = !open" class="md:hidden p-2 rounded-lg transition-colors duration-300"
-                            :class="scrolled ? 'text-slate-600 hover:bg-slate-100' : 'text-slate-600 hover:bg-slate-100/50'">
-                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                            <path x-show="open" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                        </svg>
-                    </button>
+                    <div class="md:hidden flex items-center gap-1">
+                        <!-- Theme Toggle (mobile) -->
+                        <button @click="$store.theme.toggle()"
+                                class="relative inline-flex items-center w-12 h-6 rounded-full p-0.5 bg-slate-200 dark:bg-indigo-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 dark:focus:ring-offset-slate-900"
+                                aria-label="Toggle dark mode">
+                            <span class="flex items-center justify-center w-5 h-5 bg-white rounded-full shadow transform transition-transform duration-300 translate-x-0 dark:translate-x-6">
+                                <svg class="w-3 h-3 text-amber-500 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                </svg>
+                                <svg class="w-3 h-3 text-indigo-600 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <button @click="open = !open" class="p-2 rounded-lg transition-colors duration-300"
+                                :class="scrolled ? 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/60' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-700/40'">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                                <path x-show="open" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Mobile Menu -->
@@ -77,16 +122,16 @@
                      x-transition:leave-start="opacity-100 max-h-96"
                      x-transition:leave-end="opacity-0 max-h-0"
                      class="md:hidden overflow-hidden border-t"
-                     :class="scrolled ? 'border-slate-100' : 'border-slate-200/50'">
+                     :class="scrolled ? 'border-slate-100 dark:border-slate-700' : 'border-slate-200/50 dark:border-slate-700/50'">
                     <div class="py-4 space-y-1">
-                        <a href="{{ route('home') }}" class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('home') ? 'text-indigo-600 bg-indigo-50' : '' }}"
-                           :class="!scrolled && '{{ request()->routeIs('home') ? '' : "text-slate-600 hover:bg-slate-100/50" }}'">Home</a>
-                        <a href="{{ route('about') }}" class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('about') ? 'text-indigo-600 bg-indigo-50' : '' }}"
-                           :class="!scrolled && '{{ request()->routeIs('about') ? '' : "text-slate-600 hover:bg-slate-100/50" }}'">About</a>
-                        <a href="{{ route('services') }}" class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('services') ? 'text-indigo-600 bg-indigo-50' : '' }}"
-                           :class="!scrolled && '{{ request()->routeIs('services') ? '' : "text-slate-600 hover:bg-slate-100/50" }}'">Services</a>
-                        <a href="{{ route('portfolios') }}" class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('portfolios') ? 'text-indigo-600 bg-indigo-50' : '' }}"
-                           :class="!scrolled && '{{ request()->routeIs('portfolios') ? '' : "text-slate-600 hover:bg-slate-100/50" }}'">Portfolio</a>
+                        <a href="{{ route('home') }}" 
+                           class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('home') ? 'text-indigo-600 bg-indigo-50 dark:text-indigo-400 dark:bg-indigo-900/40' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-700/50' }}">Home</a>
+                        <a href="{{ route('about') }}" 
+                           class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('about') ? 'text-indigo-600 bg-indigo-50 dark:text-indigo-400 dark:bg-indigo-900/40' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-700/50' }}">About</a>
+                        <a href="{{ route('services') }}" 
+                           class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('services') ? 'text-indigo-600 bg-indigo-50 dark:text-indigo-400 dark:bg-indigo-900/40' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-700/50' }}">Services</a>
+                        <a href="{{ route('portfolios') }}" 
+                           class="block px-4 py-2.5 rounded-xl text-sm font-medium transition {{ request()->routeIs('portfolios') ? 'text-indigo-600 bg-indigo-50 dark:text-indigo-400 dark:bg-indigo-900/40' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-slate-700/50' }}">Portfolio</a>
                         <a href="{{ route('contact') }}" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-white btn-primary text-center mt-3">Get in Touch</a>
                     </div>
                 </div>
@@ -110,12 +155,9 @@
 
                 <!-- Brand -->
                 <div class="lg:col-span-2 space-y-6">
-                    <div class="flex items-center space-x-2">
-                        <div class="w-10 h-10 rounded-xl gradient-accent flex items-center justify-center">
-                            <span class="text-white font-extrabold text-lg">V</span>
-                        </div>
-                        <span class="text-xl font-extrabold tracking-tight">{{ $settings['site_name'] ?? 'VarsaWeb' }}</span>
-                    </div>
+                    <a href="{{ route('home') }}" class="inline-flex">
+                        <img src="{{ asset('varsaweb-navbar-white.webp') }}" alt="{{ $settings['site_name'] ?? 'VarsaWeb' }}" class="h-10 w-auto">
+                    </a>
                     <p class="text-slate-400 leading-relaxed max-w-md">
                         Transforming ambitious ideas into exceptional digital experiences. We combine cutting-edge technology with creative design to deliver results that matter.
                     </p>

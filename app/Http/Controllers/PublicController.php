@@ -17,7 +17,9 @@ class PublicController extends Controller
         $services = Service::latest()->take(3)->get();
         $portfolios = Portfolio::with('category')->latest()->take(6)->get();
         $settings = SiteSetting::all()->pluck('value', 'key')->toArray();
-        return view('public.home', compact('services', 'portfolios', 'settings'));
+        $projectCount = Portfolio::count();
+        $clientCount = Portfolio::whereNotNull('client_name')->distinct('client_name')->count('client_name');
+        return view('public.home', compact('services', 'portfolios', 'settings', 'projectCount', 'clientCount'));
     }
 
     public function about()

@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+    /* Hide x-cloak elements until Alpine initialises */
+    [x-cloak] { display: none !important; }
+
     html {
         scroll-behavior: smooth;
     }
@@ -115,4 +118,48 @@
         transform: translateY(-8px);
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     }
+}
+
+/* ══════════════════════════════════════
+   Dark Mode Overrides
+   ══════════════════════════════════════ */
+
+/* Hero gradient becomes deep navy in dark mode */
+.dark .gradient-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #131b35 40%, #1a1640 70%, #0f172a 100%);
+}
+
+/* Secondary button */
+.dark .btn-secondary {
+    border-color: rgb(71 85 105);
+    color: rgb(203 213 225);
+}
+.dark .btn-secondary:hover {
+    background-color: rgb(51 65 85);
+    color: rgb(255 255 255);
+}
+
+/* Glassmorphism card in dark mode */
+.dark .glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Section badge */
+.dark .section-badge {
+    background: rgba(99, 102, 241, 0.2);
+    color: rgb(165 180 252);
+}
+
+/* Section headings */
+.dark .section-title {
+    color: rgb(248 250 252);
+}
+.dark .section-subtitle {
+    color: rgb(148 163 184);
+}
+
+/* Card hover shadow in dark mode */
+.dark .card-hover:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }

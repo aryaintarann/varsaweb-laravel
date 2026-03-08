@@ -17,7 +17,7 @@
                 </span>
             @endif
             
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight max-w-4xl mx-auto">
                 {{ $portfolio->title }}
             </h1>
             
@@ -28,15 +28,15 @@
                 @if($portfolio->client_name)
                     <div class="flex flex-col items-center">
                         <span class="text-slate-400 font-semibold uppercase tracking-wider text-xs mb-1">Client</span>
-                        <span class="text-slate-900 font-medium text-base">{{ $portfolio->client_name }}</span>
+                        <span class="text-slate-900 dark:text-white font-medium text-base">{{ $portfolio->client_name }}</span>
                     </div>
                 @endif
                 
                 @if($portfolio->completion_date)
-                    <div class="hidden sm:block w-px h-10 bg-slate-200"></div>
+                    <div class="hidden sm:block w-px h-10 bg-slate-200 dark:bg-slate-600"></div>
                     <div class="flex flex-col items-center">
                         <span class="text-slate-400 font-semibold uppercase tracking-wider text-xs mb-1">Completed</span>
-                        <span class="text-slate-900 font-medium text-base">{{ $portfolio->completion_date->format('F d, Y') }}</span>
+                        <span class="text-slate-900 dark:text-white font-medium text-base">{{ $portfolio->completion_date->format('F d, Y') }}</span>
                     </div>
                 @endif
             </div>
@@ -44,20 +44,20 @@
     </section>
 
     {{-- Project Content --}}
-    <section class="py-20 lg:py-32 bg-white relative">
+    <section class="py-20 lg:py-32 bg-white dark:bg-slate-900 relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {{-- Featured Image --}}
             @if($portfolio->image)
-                <div class="-mt-40 mb-16 lg:-mt-48 lg:mb-24 relative z-20 rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white">
+                <div class="-mt-40 mb-16 lg:-mt-48 lg:mb-24 relative z-20 rounded-3xl overflow-hidden shadow-2xl border border-white/20 dark:border-slate-700/20 bg-white dark:bg-slate-900">
                     <img src="{{ Storage::url($portfolio->image) }}" alt="{{ $portfolio->title }}" class="w-full h-auto object-cover max-h-[700px]">
                 </div>
             @endif
 
             {{-- Full Description --}}
             @if($portfolio->description)
-                 <div class="prose prose-lg prose-indigo max-w-3xl mx-auto text-slate-600">
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">About the Project</h2>
+                 <div class="prose prose-lg prose-indigo dark:prose-invert max-w-3xl mx-auto text-slate-600 dark:text-slate-300">
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">About the Project</h2>
                     <div class="leading-relaxed">
                         {!! nl2br(e($portfolio->description)) !!}
                     </div>
@@ -68,16 +68,16 @@
 
     {{-- Related Projects --}}
     @if($relatedProjects->isNotEmpty())
-        <section class="py-24 bg-slate-50 border-t border-slate-100">
+        <section class="py-24 bg-slate-50 dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl font-bold text-slate-900">More Works in {{ $portfolio->category->name }}</h2>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white">More Works in {{ $portfolio->category->name }}</h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     @foreach($relatedProjects as $project)
-                        <a href="{{ route('portfolio.detail', $project) }}" class="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full block">
-                            <div class="aspect-video overflow-hidden bg-slate-100 relative">
+                        <a href="{{ route('portfolio.detail', $project) }}" class="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full block">
+                            <div class="aspect-video overflow-hidden bg-slate-100 dark:bg-slate-700 relative">
                                 @if($project->image)
                                     <img src="{{ Storage::url($project->image) }}" alt="{{ $project->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 @else
@@ -88,15 +88,15 @@
                                 <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
                             </div>
                             <div class="p-6 flex-grow flex flex-col">
-                                <h3 class="font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">{{ $project->title }}</h3>
-                                <p class="text-sm text-slate-500 line-clamp-2 flex-grow">{{ $project->description }}</p>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 transition-colors">{{ $project->title }}</h3>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 flex-grow">{{ $project->description }}</p>
                             </div>
                         </a>
                     @endforeach
                 </div>
                 
                 <div class="mt-12 text-center">
-                    <a href="{{ route('portfolios') }}" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-colors duration-200">
+                    <a href="{{ route('portfolios') }}" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/30 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors duration-200">
                         View All Projects
                     </a>
                 </div>

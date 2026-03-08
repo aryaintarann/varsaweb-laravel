@@ -10,24 +10,24 @@
             <div class="absolute bottom-0 right-1/3 w-80 h-80 bg-violet-300/15 rounded-full blur-3xl"></div>
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="section-badge">Get in Touch</span>
-            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
+            <div class="text-indigo-600 font-bold tracking-widest uppercase text-sm mb-4">Get in Touch</div>
+            <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                 Let's Start a
                 <span class="text-indigo-600">Conversation</span>
             </h1>
-            <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p class="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
                 Whether you have a question, a project idea, or just want to say hello — we'd love to hear from you.
             </p>
         </div>
     </section>
 
-    <section class="py-24 lg:py-32 bg-slate-50">
+    <section class="py-24 lg:py-32 bg-slate-50 dark:bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl shadow-xl shadow-slate-900/5 overflow-hidden border border-slate-100">
+            <div class="bg-white dark:bg-slate-900 dark:border-slate-700 dark:shadow-black/20 rounded-3xl shadow-xl shadow-slate-900/5 overflow-hidden border border-slate-100">
                 <div class="grid lg:grid-cols-5">
 
                     {{-- Contact Info --}}
-                    <div class="lg:col-span-2 gradient-hero relative overflow-hidden p-10 lg:p-12 text-white">
+                    <div class="lg:col-span-2 bg-indigo-600 relative overflow-hidden p-10 lg:p-12 text-white">
                         <div class="absolute inset-0 overflow-hidden">
                             <div class="absolute -bottom-20 -left-20 w-60 h-60 bg-indigo-400/20 rounded-full blur-3xl"></div>
                             <div class="absolute top-10 right-10 w-40 h-40 bg-violet-400/15 rounded-full blur-3xl"></div>
@@ -102,18 +102,18 @@
 
                     {{-- Contact Form --}}
                     <div class="lg:col-span-3 p-10 lg:p-14">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Send us a message</h3>
-                        <p class="text-slate-500 mb-8">We'll respond as quickly as possible.</p>
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Send us a message</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8">We'll respond as quickly as possible.</p>
 
                         @if(session('success'))
-                            <div class="mb-8 bg-emerald-50 border border-emerald-200 rounded-2xl p-5">
+                            <div class="mb-8 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-700 rounded-2xl p-5">
                                 <div class="flex items-start gap-3">
-                                    <div class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
                                         <svg class="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-emerald-800">Message Sent!</h4>
-                                        <p class="text-sm text-emerald-700 mt-1">{{ session('success') }}</p>
+                                        <h4 class="font-semibold text-emerald-800 dark:text-emerald-300">Message Sent!</h4>
+                                        <p class="text-sm text-emerald-700 dark:text-emerald-400 mt-1">{{ session('success') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -124,32 +124,32 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Full Name <span class="text-red-500">*</span></label>
+                                    <label for="name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Full Name <span class="text-red-500">*</span></label>
                                     <input type="text" name="name" id="name" value="{{ old('name') }}" required placeholder="Your name"
-                                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow @error('name') border-red-300 bg-red-50 @enderror">
-                                    @error('name')<p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>@enderror
+                                        class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow @error('name') border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-900/20 @enderror">
+                                    @error('name')<p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>@enderror
                                 </div>
                                 <div>
-                                    <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email <span class="text-red-500">*</span></label>
+                                    <label for="email" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Email <span class="text-red-500">*</span></label>
                                     <input type="email" name="email" id="email" value="{{ old('email') }}" required placeholder="you@example.com"
-                                        class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow @error('email') border-red-300 bg-red-50 @enderror">
-                                    @error('email')<p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>@enderror
+                                        class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow @error('email') border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-900/20 @enderror">
+                                    @error('email')<p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>@enderror
                                 </div>
                             </div>
 
                             <div>
-                                <label for="subject" class="block text-sm font-semibold text-slate-700 mb-2">Subject <span class="text-red-500">*</span></label>
+                                <label for="subject" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Subject <span class="text-red-500">*</span></label>
                                 @php $defaultSubject = request('service') ? 'Inquiry regarding: ' . request('service') : ''; @endphp
                                 <input type="text" name="subject" id="subject" value="{{ old('subject', $defaultSubject) }}" required placeholder="What is this about?"
-                                    class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow @error('subject') border-red-300 bg-red-50 @enderror">
-                                @error('subject')<p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>@enderror
+                                    class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow @error('subject') border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-900/20 @enderror">
+                                @error('subject')<p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>@enderror
                             </div>
 
                             <div>
-                                <label for="message" class="block text-sm font-semibold text-slate-700 mb-2">Message <span class="text-red-500">*</span></label>
+                                <label for="message" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Message <span class="text-red-500">*</span></label>
                                 <textarea name="message" id="message" rows="5" required placeholder="Tell us about your project..."
-                                    class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow resize-none @error('message') border-red-300 bg-red-50 @enderror">{{ old('message') }}</textarea>
-                                @error('message')<p class="mt-1.5 text-sm text-red-600">{{ $message }}</p>@enderror
+                                    class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow resize-none @error('message') border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-900/20 @enderror">{{ old('message') }}</textarea>
+                                @error('message')<p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>@enderror
                             </div>
 
                             <div>
@@ -166,7 +166,7 @@
     </section>
 
     @if(!empty($settings['contact_map_url']))
-    <section class="bg-white">
+    <section class="bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
             <div class="rounded-3xl overflow-hidden shadow-lg shadow-slate-900/5 border border-slate-100">
                 <iframe src="{{ $settings['contact_map_url'] }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

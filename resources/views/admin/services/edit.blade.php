@@ -39,12 +39,6 @@
                             <p class="mt-1 text-xs text-gray-500">A brief summary to display on the home and service list pages.</p>
                         </div>
                         
-                        <div>
-                            <label for="full_description" class="block text-sm font-medium text-gray-700">Full Description</label>
-                            <textarea name="full_description" id="full_description" rows="6" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">{{ old('full_description', $service->full_description) }}</textarea>
-                            <p class="mt-1 text-xs text-gray-500">Detailed explanation of the service.</p>
-                        </div>
-                        
                         <div class="flex items-center justify-end">
                             <a href="{{ route('admin.services.index') }}" class="text-gray-600 hover:text-gray-900 font-medium mr-4">Cancel</a>
                             <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">

@@ -11,31 +11,31 @@
         </div>
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="text-indigo-600 font-bold tracking-widest uppercase text-sm mb-4">Our Work</div>
-            <h1 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">
+            <h1 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                 Featured
                 <span class="text-indigo-600">Projects</span>
             </h1>
-            <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p class="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
                 A curated collection of our best work, showcasing innovation across diverse industries.
             </p>
         </div>
     </section>
 
-    <section class="py-24 lg:py-32 bg-white">
+    <section class="py-24 lg:py-32 bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {{-- Category Filter --}}
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 pb-8 border-b border-slate-100">
-                <h2 class="text-2xl font-bold text-slate-900">All Projects</h2>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12 pb-8 border-b border-slate-100 dark:border-slate-700">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">All Projects</h2>
                 <form action="{{ route('portfolios') }}" method="GET" class="flex items-center gap-3">
-                    <select name="category" onchange="this.form.submit()" class="px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-700 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow">
+                    <select name="category" onchange="this.form.submit()" class="px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow">
                         <option value="">All Categories</option>
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                         @endforeach
                     </select>
                     @if(request('category'))
-                        <a href="{{ route('portfolios') }}" class="text-sm text-slate-500 hover:text-indigo-600 transition-colors underline underline-offset-2">Clear</a>
+                        <a href="{{ route('portfolios') }}" class="text-sm text-slate-500 dark:text-slate-400 hover:text-indigo-600 transition-colors underline underline-offset-2">Clear</a>
                     @endif
                 </form>
             </div>
@@ -43,12 +43,12 @@
             {{-- Grid --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($portfolios as $portfolio)
-                    <a href="{{ route('portfolio.detail', $portfolio) }}" class="card-hover group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-indigo-100 flex flex-col block h-full">
+                    <a href="{{ route('portfolio.detail', $portfolio) }}" class="card-hover group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-800 flex flex-col block h-full">
                         <div class="relative overflow-hidden aspect-[4/3]">
                             @if($portfolio->image)
                                 <img src="{{ Storage::url($portfolio->image) }}" alt="{{ $portfolio->title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             @else
-                                <div class="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+                                <div class="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 flex items-center justify-center">
                                     <svg class="w-16 h-16 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                                 </div>
                             @endif
@@ -58,15 +58,15 @@
                             </div>
                             {{-- Category Badge --}}
                             <div class="absolute top-4 left-4">
-                                <span class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-bold bg-white/90 backdrop-blur-sm text-indigo-700 shadow-sm">
+                                <span class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-bold bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm text-indigo-700 dark:text-indigo-300 shadow-sm">
                                     {{ $portfolio->category ? $portfolio->category->name : 'Uncategorized' }}
                                 </span>
                             </div>
                         </div>
                         <div class="p-6 flex-grow flex flex-col">
-                            <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors duration-200">{{ $portfolio->title }}</h3>
-                            <p class="text-sm text-slate-500 line-clamp-2 mb-5 flex-grow">{{ $portfolio->description }}</p>
-                            <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-100 mt-auto">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 transition-colors duration-200">{{ $portfolio->title }}</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-5 flex-grow">{{ $portfolio->description }}</p>
+                            <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-100 dark:border-slate-700 mt-auto">
                                 <div class="flex items-center gap-1.5">
                                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                                     {{ $portfolio->client_name ?? 'Confidential' }}
@@ -79,12 +79,12 @@
                         </div>
                     </a>
                 @empty
-                    <div class="col-span-full text-center py-20 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
-                        <div class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto mb-4">
+                    <div class="col-span-full text-center py-20 bg-slate-50 dark:bg-slate-800 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-700">
+                        <div class="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                         </div>
-                        <h3 class="font-semibold text-slate-900">No Projects Found</h3>
-                        <p class="mt-1 text-sm text-slate-500">
+                        <h3 class="font-semibold text-slate-900 dark:text-white">No Projects Found</h3>
+                        <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
                             @if(request('category'))
                                 No projects match this filter.
                             @else
