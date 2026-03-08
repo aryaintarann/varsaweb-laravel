@@ -91,9 +91,9 @@
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 {{-- Image --}}
                 <div class="relative">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10">
-                        <img class="w-full h-[450px] object-cover" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="Team collaborating">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
+                    <div class="relative flex items-center justify-center h-[450px]">
+                        <img class="block dark:hidden max-h-72 w-auto object-contain transform rotate-2 hover:rotate-0 transition-transform duration-500" src="{{ asset('Varsaweb-Logo-Dark.webp') }}" alt="VarsaWeb Logo">
+                        <img class="hidden dark:block max-h-72 w-auto object-contain transform rotate-2 hover:rotate-0 transition-transform duration-500" src="{{ asset('Varsaweb-Logo-White.webp') }}" alt="VarsaWeb Logo">
                     </div>
                 </div>
 

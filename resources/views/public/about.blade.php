@@ -25,9 +25,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 <div class="relative order-2 lg:order-1">
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10">
-                        <img class="w-full h-[480px] object-cover" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Team brainstorming">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
+                    <div class="relative flex items-center justify-center h-[480px]">
+                        <img class="block dark:hidden max-h-80 w-auto object-contain transform rotate-2 hover:rotate-0 transition-transform duration-500" src="{{ asset('Varsaweb-Logo-Dark.webp') }}" alt="VarsaWeb Logo">
+                        <img class="hidden dark:block max-h-80 w-auto object-contain transform rotate-2 hover:rotate-0 transition-transform duration-500" src="{{ asset('Varsaweb-Logo-White.webp') }}" alt="VarsaWeb Logo">
                     </div>
                 </div>
 
