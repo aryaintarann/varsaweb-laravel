@@ -17,7 +17,17 @@ class SiteSettingController extends Controller
 
     public function store(Request $request)
     {
-        // Define allowable settings keys based on PRD
+        $request->validate([
+            'site_name'       => 'nullable|string|max:255',
+            'contact_address' => 'nullable|string|max:500',
+            'contact_email'   => 'nullable|email|max:255',
+            'contact_phone'   => 'nullable|string|max:30',
+            'contact_map_url' => 'nullable|url|max:1000',
+            'social_facebook' => 'nullable|url|max:500',
+            'social_instagram'=> 'nullable|url|max:500',
+            'social_linkedin' => 'nullable|url|max:500',
+        ]);
+
         $allowedKeys = [
             'site_name',
             'contact_address',
@@ -27,7 +37,6 @@ class SiteSettingController extends Controller
             'social_facebook',
             'social_instagram',
             'social_linkedin',
-            // Note: Logo & Favicon handling would go here. For simplicity based on PRD, keeping it text-based/simple.
         ];
 
         $data = $request->only($allowedKeys);

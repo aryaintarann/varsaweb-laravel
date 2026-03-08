@@ -139,7 +139,7 @@
 
                             <div>
                                 <label for="subject" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Subject <span class="text-red-500">*</span></label>
-                                @php $defaultSubject = request('service') ? 'Inquiry regarding: ' . request('service') : ''; @endphp
+                                @php $defaultSubject = request('service') ? 'Inquiry regarding: ' . e(request('service')) : ''; @endphp
                                 <input type="text" name="subject" id="subject" value="{{ old('subject', $defaultSubject) }}" required placeholder="What is this about?"
                                     class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-shadow @error('subject') border-red-300 bg-red-50 dark:border-red-700 dark:bg-red-900/20 @enderror">
                                 @error('subject')<p class="mt-1.5 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>@enderror

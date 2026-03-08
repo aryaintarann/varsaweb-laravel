@@ -7,7 +7,20 @@ use Illuminate\Support\Str;
 
 class Portfolio extends Model
 {
-    protected $guarded = [];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'category_id',
+        'title',
+        'slug',
+        'image',
+        'description',
+        'client_name',
+        'completion_date',
+    ];
 
     protected function casts(): array
     {

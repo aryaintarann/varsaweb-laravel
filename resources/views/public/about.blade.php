@@ -33,7 +33,7 @@
 
                 <div class="space-y-6 order-1 lg:order-2">
                     <div class="text-indigo-600 font-bold tracking-widest uppercase text-sm mb-3">Our Story</div>
-                    <h2 class="section-title">{!! $settings['about_story_title'] ?? 'Building the Future, <span class="text-slate-900 dark:text-white">One Project at a Time</span>' !!}</h2>
+                    <h2 class="section-title">{!! strip_tags($settings['about_story_title'] ?? 'Building the Future, <span class="text-slate-900 dark:text-white">One Project at a Time</span>', '<span>') !!}</h2>
                     <div class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed text-lg whitespace-pre-line">
                         {{ $settings['about_story_text'] ?? "Founded with a simple belief — technology should empower businesses to reach their fullest potential. " . ($settings['site_name'] ?? 'VarsaWeb') . " began as a small team of passionate developers determined to make a difference.\n\nToday, our team has grown, but our core values remain the same. We focus on delivering high-quality, scalable digital solutions tailored to each client's unique needs, combining cutting-edge technology with a human-centered approach to design." }}
                     </div>
